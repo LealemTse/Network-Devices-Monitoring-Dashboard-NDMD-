@@ -1,11 +1,12 @@
 const express = require('express');
-const { addDevice, addDevice, getAllDevices, getDeviceById, editDevice } = require('../controllers/deviceController');
+const { addDevice, addDevice, getAllDevices, getDeviceById, editDevice, deleteDevice } = require('../controllers/deviceController');
+const authMiddleware = require('../middlewares/authMiddleWare')
 const router = express.Router()
 
-router.get('/', getAllDevices)
-router.get('/:id', getDeviceById)
-router.post('/', addDevice)
-router.put('/:id', editDevice)
-router.delete('/:id', addDevice)
+router.get('/', authMiddleware, getAllDevices)
+router.get('/:id', authMiddleware, getDeviceById)
+router.post('/', authMiddleware, addDevice)
+router.put('/:id', authMiddleware, editDevice)
+router.delete('/:id', authMiddleware, deleteDevice)
 
 module.exports = router

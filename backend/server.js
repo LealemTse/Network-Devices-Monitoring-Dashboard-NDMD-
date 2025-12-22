@@ -1,12 +1,16 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const express = require('express')
+const dotenv = require('dotenv')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const dbConnect = require('../config/db.js')
-const app = express();
 const authRoutes = require('./controllers/authController.js')
+
+const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
+
 app.use("/api/auth", authRoutes);
 dbConnect();
 const testDBConnection = async () => {
