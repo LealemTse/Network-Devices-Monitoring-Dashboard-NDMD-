@@ -10,4 +10,4 @@ const dbConnect = mysql.createPool({
 });
 
 
-export default dbConnect
+module.exports = dbConnect
