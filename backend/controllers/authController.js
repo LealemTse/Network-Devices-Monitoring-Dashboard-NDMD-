@@ -29,42 +29,35 @@ const login = async (req, res) => {
 
 const forgotPassword = async (req, res) => {
     try {
-        const { email } = req.body
-        const [users] = await db.query("SELECT id FROM users WHERE email = ?", [email])
+        const { email, securityAnswer1, securityAnswer2 } = req.body
+        if (!email || !securityAnswer1 || !securityAnswer2) {
+            return res.status(400).json({ message: "Incomplete fields" })
+        }
+        const [users] = await db.query("SELECT security_answer_1_hash, security_answer_2_hash FROM users WHERE email = ?", [email])
         const user = users[0]
         if (!user) return res.status(404).json({ message: "User not found" })
-        const userId = user.id
+        const isAnswer1Correct = await bcrypt.compare(
+            securityAnswer1,
+            user.security_answer_1_hash
+        );
 
-        //assuming we'll have a table user_security_answers, we can change it later
-
-        const [storedAnswers] = await db.query('SELECT question_id, answer_has FROM user_security_answers WHERE user_id = ?', [userId])
-        for (const provided of answers) {
-            const stored = storedAnswers.find(
-                answer => answer.question_id === provided.questionId
-            );
-
-            if (!stored) {
-                return res.status(401).json({ message: "Invalid security answers" });
-            }
-
-            const match = await bcrypt.compare(
-                provided.answer,
-                stored.answer
-            );
-
-            if (!match) {
-                return res.status(401).json({ message: "Invalid security answer" });
-            } else {
-                res.status(200).json({ message: "Valid security answers" });
-            }
+        const isAnswer2Correct = await bcrypt.compare(
+            securityAnswer2,
+            user.security_answer_2_hash
+        );
+        if (!isAnswer1Correct || !isAnswer2Correct) {
+            return res.status(401).json({ message: "Invalid security answers" })
         }
+
+        res.status(200).json({ message: "Security answers verified" })
     }
+
     catch (err) {
-        console.error("Forgot password error:", err);
-        res.status(500).json({ message: "Internal Server Error" });
+        console.error("Forgot password error:", err)
+        res.status(500).json({ message: "Internal Server Error" })
     }
 }
-const getSecurityQuestions = async (req, res) => {
+const getSecurityQuestion = async (req, res) => {
 
 }
 
