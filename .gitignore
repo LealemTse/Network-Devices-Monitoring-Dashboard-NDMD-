@@ -1,2 +1,35 @@
+# .gitignore - Files to exclude from Git
+
+# Python cache files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Project-specific folders to ignore
+deployment/
+
+# Temporary files
+*.tmp
+*.temp
