@@ -1,4 +1,5 @@
 const db = require('../config/db')
+const net = require('net');
 
 const getAllDevices = async (req, res) => {
     try {
@@ -24,10 +25,6 @@ const getDeviceById = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 }
-
-
-// Frontend sends: { name, ip_address, mac_address }
-// Recieves device id,name, ip_address,mac_address,
 
 const addDevice = async (req, res) => {
     try {
