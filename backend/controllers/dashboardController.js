@@ -55,7 +55,9 @@ const getUptimeSummary = async (req, res) => {
         const statusLogs = await db.query(
             "SELECT status, timestamp, device_id FROM status_log ORDER BY timestamp ASC"
         )
+
         const uptimeSummaries = {}
+
         for (const log of statusLogs) {
             if (!uptimeSummaries[log.device_id]) {
                 uptimeSummaries[log.device_id] = {
