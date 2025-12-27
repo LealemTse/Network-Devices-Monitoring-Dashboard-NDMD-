@@ -1,12 +1,13 @@
 const db = require('../config/db')
+const net = require('net');
 
 const getAllDevices = async (req, res) => {
     try {
         const [devices] = await db.query(
             "SELECT id, name, ip_address, mac_address, status FROM devices"
         )
-
-        res.status(200).json({ devices })
+        if (!devices.length) return res.status(404).json({ message: "No devices found" })
+        res.status(200).json({ devices: devices })
     } catch (err) {
         console.error("Error getting devices:", err)
         res.status(500).json({ message: "Internal Server Error" })
@@ -26,8 +27,6 @@ const getDeviceById = async (req, res) => {
 }
 
 
-// Frontend sends: { name, ip_address, mac_address }
-// Recieves device id,name, ip_address,mac_address,
 
 const addDevice = async (req, res) => {
     try {
