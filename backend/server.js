@@ -21,10 +21,6 @@ app.use("/api/devices", deviceRoutes);
 app.use("/api/monitoring", monitoringRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
-app.get('/test', (req, res) => {
-    res.send('server alive');
-});
-
 const testDBConnection = async () => {
     try {
         const connection = await db.getConnection()
