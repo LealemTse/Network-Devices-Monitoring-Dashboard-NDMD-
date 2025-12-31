@@ -37,8 +37,8 @@ const getDeviceStatusSummary = async (req, res) => {
             name: d.name,
             status: d.status,
             color: statusColors[d.status],
-            ip_address: ip_address,
-            mac_address: mac_address
+            ip_address: d.ip_address,
+            mac_address: d.mac_address
         }));
         res.status(200).json({ devices: devices });
 
@@ -52,7 +52,7 @@ const getDeviceStatusSummary = async (req, res) => {
 
 const getUptimeSummary = async (req, res) => {
     try {
-        const statusLogs = await db.query(
+        const [statusLogs] = await db.query(
             "SELECT status, timestamp, device_id FROM status_log ORDER BY timestamp ASC"
         )
 

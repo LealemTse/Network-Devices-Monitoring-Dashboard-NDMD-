@@ -7,7 +7,7 @@ const getDevices = async (req, res) => {
         const [rows] = await db.query(
             "SELECT id, name, ip_address FROM devices"
         )
-        if (!result.length) return res.status(404).json({ message: "No devices found." })
+        if (!rows.length) return res.status(404).json({ message: "No devices found." })
         res.status(200).json({
             devices: rows.map(d => ({
                 deviceId: d.id,
