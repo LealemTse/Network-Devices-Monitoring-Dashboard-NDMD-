@@ -1,8 +1,7 @@
-# tests/test_scheduler_logger.py
-
 import time
+from datetime import datetime,timezone
 from unittest.mock import patch
-from backend_communication.logger import log_status_change
+from db_communication.logger import log_status_change
 from monitoring.device_monitor import DeviceMonitor
 import mock_backend  # your mock_backend.py
 
@@ -10,7 +9,7 @@ import mock_backend  # your mock_backend.py
 import requests
 from backend_communication import api_client
 
-# 1️⃣ Set up a Flask test client
+# 1️ Set up a Flask test client
 client = mock_backend.app.test_client()
 
 # Patch the API client to redirect HTTP calls to the test client
@@ -27,7 +26,7 @@ def mock_send_status_update(payload):
     print("Mock backend received status:", payload)
     return resp.get_json()
 
-# 2️⃣ Mock DeviceMonitor to avoid real ping calls
+# 2️ Mock DeviceMonitor to avoid real ping calls
 class MockDeviceMonitor(DeviceMonitor):
     def check_device(self):
         # Simulate device always ONLINE with low latency
@@ -40,11 +39,11 @@ class MockDeviceMonitor(DeviceMonitor):
             "ip_address": self.ip_address,
             "status": status,
             "latency_ms": latency * 1000,
-            "last_checked": time.time(),
+            "last_checked": datetime.now(timezone.utc).isoformat(),
             "ping_history": [latency]
         }
 
-# 3️⃣ Simple scheduler function for testing
+# 3️ Simple scheduler function for testing
 def start_scheduler_for_test(cycles=2):
     # Patch api_client functions
     api_client.fetch_devices = mock_fetch_devices
@@ -64,7 +63,7 @@ def start_scheduler_for_test(cycles=2):
         print(f"Waiting {interval} seconds before next cycle...\n")
         time.sleep(0.5)  # short sleep for testing
 
-# 4️⃣ Run the test
+# 4️ Run the test
 if __name__ == "__main__":
     print("Running scheduler + logger test with mock backend...")
     start_scheduler_for_test(cycles=3)
