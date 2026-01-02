@@ -1,6 +1,6 @@
-import time
-from .ping_service import ping_device
-from .status_classifier import classify_status
+from ping_service import ping_device
+from status_classifier import classify_status
+from datetime import datetime,timezone
 
 # CLASS: DeviceMonitor 
 
@@ -28,7 +28,7 @@ class DeviceMonitor:
         self.name = name
         self.ping_history = [] #it will store the last 5 ping result
         self.status = "OFFLINE" # current status
-        self.last_checked = None #when we last pinged
+        self.last_checked = datetime.now(timezone.utc) #when we last pinged
 
     def check_device(self):
         """ 
@@ -56,7 +56,7 @@ class DeviceMonitor:
 
         #STEP 3: Determine status
         self.status = classify_status(self.ping_history)
-        self.last_checked = time.time()
+        self.last_checked = datetime.now(timezone.utc)
 
         #STEP 4: Prepare data for backend 
         result = {
@@ -65,7 +65,7 @@ class DeviceMonitor:
             "ip_address": self.ip_address,
             "status": self.status,
             "latency_ms": round(latency * 1000, 2) if latency else None,
-            "last_checked": time.strftime("%H:%M:%S"),
+            "last_checked": self.last_checked.isoformat(),
             "ping_history": self.ping_history.copy()
         }
 
