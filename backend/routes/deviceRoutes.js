@@ -1,5 +1,5 @@
 const express = require('express');
-const { addDevice, addDevice, getAllDevices, getDeviceById, editDevice, deleteDevice } = require('../controllers/deviceController');
+const { addDevice, getAllDevices, getDeviceById, editDevice, deleteDevice } = require('../controllers/deviceController');
 const authMiddleware = require('../middlewares/authMiddleWare')
 const router = express.Router()
 
