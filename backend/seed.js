@@ -1,4 +1,4 @@
-const db = require('config/db');
+const db = require('./config/db');
 const bcrypt = require('bcryptjs');
 
 const seedDatabase = async () => {
@@ -18,7 +18,7 @@ const seedDatabase = async () => {
         //inserting to the database
 
         const query =
-            `INSERT INTO users (username, password, securityAnswer1, securityAnswer2) VALUES (?, ?, ?, ?)`;
+            `INSERT INTO users (username, password, security_answer_1_hash, security_answer_2_hash) VALUES (?, ?, ?, ?)`;
         await db.query(query, [
             username,
             hashedPassword,
