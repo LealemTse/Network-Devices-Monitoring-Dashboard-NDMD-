@@ -32,6 +32,7 @@ export default function ForgotPassword() {
           className="input security-answer"
           placeholder="Type your answer here..."
         />
+        <button className="forgot-submit"> Verify Me</button>
       </form>
     </div>
   );

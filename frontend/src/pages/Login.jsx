@@ -2,7 +2,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <form className="login-form" action="">
-        <h1 className="login-title">Login</h1>
+        <h1 className="login-title">Login to NDMD</h1>
         <label className="login-label label" htmlFor="login-admin">
           User
         </label>
@@ -21,10 +21,10 @@ export default function Login() {
           className="input login-password"
           placeholder="Min. 8 characters"
         />
+        <button className="login-submit">Login</button>
         <a className="forgot-password" href="/forgot_password">
           Forgot Password
         </a>
-        <button className="login-submit">Login</button>
       </form>
     </div>
   );
