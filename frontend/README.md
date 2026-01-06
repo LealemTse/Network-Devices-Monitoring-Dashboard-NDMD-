@@ -26,10 +26,10 @@ cd frontend
 npm install
 ```
 3. Command to run
-    ```bash
+ ```bash
 npm run dev
 ```
 4. To see device info displayed, go to new terminal, change directory and run
-    ```bash
+```bash
  npx json-server --watch db.json
 ```
