@@ -24,7 +24,7 @@ export default function Login() {
           placeholder="Min. 8 characters"
         />
         <button className="login-submit">Login</button>
-        <Link className="forgot-password" href="/forgot_password">
+        <Link className="forgot-password" to="/forgot_password">
           Forgot Password
         </Link>
       </form>
