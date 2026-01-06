@@ -1,0 +1,49 @@
+{
+  "configs": {
+    "pingInterval": "",
+    "pingTimeout": "",
+    "retryCount": "",
+    "lastUpdated": "2026-01-05T21:19:13Z"
+  },
+  "devices": [
+    {
+      "id": 1,
+      "name": "Main-Router",
+      "status": "online",
+      "ipAddress": "192.168.1.1",
+      "macAddress": "A4:5E:60:9B:2C:11",
+      "logs": [
+        {
+          "id": 101,
+          "time": "2026-01-05 04:00:12",
+          "status": "online",
+          "latency": 12,
+          "packetLoss": 0
+        },
+        {
+          "id": 104,
+          "time": "2026-01-05 05:10:00",
+          "status": "online",
+          "latency": 10,
+          "packetLoss": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Living-Room-TV",
+      "status": "unstable",
+      "ipAddress": "192.168.1.23",
+      "macAddress": "B8:27:EB:4F:91:3A",
+      "logs": [
+        {
+          "id": 103,
+          "time": "2026-01-05 03:30:22",
+          "status": "unstable",
+          "latency": 145,
+          "packetLoss": 15
+        }
+      ]
+    }
+  ]
+}
