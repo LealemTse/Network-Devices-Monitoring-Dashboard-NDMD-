@@ -64,9 +64,10 @@ export default function Navbar() {
         <li className="link" onClick={() => setIsOpen(false)}>
           <NavLink to="/settings">Settings</NavLink>
         </li>
-        <li className="link" onClick={() => setIsOpen(false)}>
+        {/* <li className="link" onClick={() => setIsOpen(false)}>
           <NavLink to="/help">Help</NavLink>
-        </li>
+          <div> Help </div>
+        </li> */}
         <li className="mobile-only">
           {/* Mobile Logout trigger */}
           <button className="logout" onClick={() => setShowModal(true)}>

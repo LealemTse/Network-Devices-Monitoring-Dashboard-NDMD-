@@ -61,6 +61,7 @@ const AddDeviceModal = ({ isOpen, onAdd, onCancel }) => {
         <form onSubmit={handleSubmit} className="add-form">
           <label className="labels">Name: </label>
           <input
+            title="Enter Device Name"
             className="input-field"
             placeholder="Name"
             value={name}
@@ -69,6 +70,7 @@ const AddDeviceModal = ({ isOpen, onAdd, onCancel }) => {
           />
           <label className="labels">IP Address: </label>
           <input
+            title="Enter device IP Address "
             className="input-field"
             placeholder="IP Address"
             value={ip}
@@ -77,6 +79,7 @@ const AddDeviceModal = ({ isOpen, onAdd, onCancel }) => {
           />
           <label className="labels">MAC Address: </label>
           <input
+          title="Enter the MAC Address"
             className="input-field"
             placeholder="MAC Address"
             value={mac}

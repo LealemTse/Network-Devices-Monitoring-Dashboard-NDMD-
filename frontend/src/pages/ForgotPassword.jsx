@@ -13,6 +13,7 @@ export default function ForgotPassword() {
             Security Questions
           </label>
           <select
+            title="choose the secuirity question you choose when signing up"
             className=" recovery-security-questions"
             name=""
             id="recovery-security-question"
@@ -33,6 +34,7 @@ export default function ForgotPassword() {
             Your Answer
           </label>
           <input
+            title="Answer the exact response you gave when signing up (capitalization matters)"
             type="password"
             className="input security-answer"
             placeholder="Type your answer here..."
