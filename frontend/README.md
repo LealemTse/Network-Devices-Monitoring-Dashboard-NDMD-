@@ -17,7 +17,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # Quick Start
  1. Change directory to frontend
- 2. 
    ```bash
 cd frontend
 ```
@@ -32,5 +31,5 @@ npm run dev
 ```
 4. To see device info displayed, go to new terminal, change directory and run
     ```bash
-npx json-server --watch db.json
+ npx json-server --watch db.json
 ```
