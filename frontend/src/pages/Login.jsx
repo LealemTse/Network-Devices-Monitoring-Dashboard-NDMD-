@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Login() {
   return (
     <div className="login-container">
@@ -22,9 +24,9 @@ export default function Login() {
           placeholder="Min. 8 characters"
         />
         <button className="login-submit">Login</button>
-        <a className="forgot-password" href="/forgot_password">
+        <Link className="forgot-password" href="/forgot_password">
           Forgot Password
-        </a>
+        </Link>
       </form>
     </div>
   );
