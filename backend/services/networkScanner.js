@@ -1,5 +1,6 @@
 const fs = require('fs');
 const util = require('util');
+const os = require('os');
 const { exec } = require('child_process');
 const readFile = util.promisify(fs.readFile);
 const execPromise = util.promisify(exec);
@@ -12,142 +13,193 @@ class NetworkScanner {
 
     async scan() {
         try {
-            console.log('Starting network scan...');
-            // Step 1: Read ARP table for discovery
-            const arpContent = await readFile(this.arpFile, 'utf8');
-            const discoveries = this.parseArpTable(arpContent);
-            console.log(`Found ${discoveries.length} devices in ARP table`);
+            console.log('Starting high-accuracy network scan (Ping Sweep)...');
 
-            // Step 2: Sync ARP discoveries with DB (Add new devices, update MACs)
-            await this.syncDiscoveries(discoveries);
+            // 1. Detect Local Subnet
+            const { subnet, localIP } = this.getLocalNetworkInfo();
+            if (!subnet) {
+                console.error("Could not detect local subnet. Scanning DB devices only.");
+                return [];
+            }
+            console.log(`Scanning subnet: ${subnet} (Local IP: ${localIP})`);
 
-            // Step 3: Active Status Check (Ping all DB devices)
-            await this.updateDeviceStatuses();
+            // 2. Perform Ping Sweep (Active Discovery)
+            // Scans all IPs in the subnet to find active hosts
+            const activeHosts = await this.pingSweep(subnet);
+            console.log(`Ping Sweep found ${activeHosts.length} active hosts.`);
 
-            return discoveries;
+            // 3. Get MAC Addresses from ARP Table
+            // (Ping populates ARP table for local LAN)
+            const arpEntries = await this.readArpTable();
+
+            // 4. Merge Data
+            const devices = this.mergeDeviceData(activeHosts, arpEntries);
+
+            // 5. Update Database (Sync)
+            await this.syncDatabase(devices);
+
+            return devices;
         } catch (err) {
             console.error('Network scan failed:', err);
             return [];
         }
     }
 
-    parseArpTable(content) {
-        const lines = content.trim().split('\n');
-        const devices = [];
-
-        for (let i = 1; i < lines.length; i++) {
-            const line = lines[i].replace(/\s+/g, ' ').trim();
-            if (!line) continue;
-
-            const parts = line.split(' ');
-            if (parts.length >= 4) {
-                const ip = parts[0];
-                const mac = parts[3];
-
-                if (mac !== '00:00:00:00:00:00' && ip !== '127.0.0.1') {
-                    devices.push({
-                        ip_address: ip,
-                        mac_address: mac,
-                        name: `Device-${ip.split('.').pop()}`,
-                        status: 'online'
-                    });
+    getLocalNetworkInfo() {
+        const interfaces = os.networkInterfaces();
+        for (const name of Object.keys(interfaces)) {
+            for (const iface of interfaces[name]) {
+                if (iface.family === 'IPv4' && !iface.internal) {
+                    const ip = iface.address;
+                    const prefix = ip.substring(0, ip.lastIndexOf('.'));
+                    return { subnet: `${prefix}.0/24`, localIP: ip, prefix };
                 }
+            }
+        }
+        return { subnet: null, localIP: null };
+    }
+
+    async pingSweep(subnet) {
+        // Generate all IPs in /24 subnet (1..254)
+        const prefix = subnet.split('.')[0] + '.' + subnet.split('.')[1] + '.' + subnet.split('.')[2];
+        const ips = [];
+        for (let i = 1; i < 255; i++) {
+            ips.push(`${prefix}.${i}`);
+        }
+
+        // Ping in batches to avoid OS limit/overhead
+        const batchSize = 50;
+        const activeHosts = [];
+
+        for (let i = 0; i < ips.length; i += batchSize) {
+            const batch = ips.slice(i, i + batchSize);
+            const promises = batch.map(ip => this.checkIP(ip));
+            const results = await Promise.all(promises);
+
+            // Filter alive hosts
+            results.forEach(res => {
+                if (res.alive) {
+                    activeHosts.push(res);
+                }
+            });
+        }
+        return activeHosts;
+    }
+
+    async checkIP(ip) {
+        try {
+            // Ping 1 packet, timeout 1s
+            const { stdout } = await execPromise(`ping -c 1 -W 1 ${ip}`);
+            // Extract latency
+            const timeMatch = stdout.match(/time=([\d.]+)/);
+            const latency = timeMatch ? parseFloat(timeMatch[1]) : 0;
+            return { ip, alive: true, latency, hostname: `Device-${ip.split('.').pop()}` };
+        } catch (err) {
+            return { ip, alive: false, latency: null };
+        }
+    }
+
+    async readArpTable() {
+        try {
+            // Read ARP table to get MACs
+            const content = await readFile(this.arpFile, 'utf8');
+            const lines = content.trim().split('\n');
+            const entries = {}; // Map IP -> MAC
+
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].replace(/\s+/g, ' ').trim();
+                const parts = line.split(' ');
+                if (parts.length >= 4) {
+                    const ip = parts[0];
+                    const mac = parts[3];
+                    // On some systems, incomplete entries show 00:00...
+                    if (mac !== '00:00:00:00:00:00') {
+                        entries[ip] = mac;
+                    }
+                }
+            }
+            return entries;
+        } catch (err) {
+            console.error("Error reading ARP table:", err);
+            return {};
+        }
+    }
+
+    mergeDeviceData(activeHosts, arpEntries) {
+        const devices = [];
+        for (const host of activeHosts) {
+            // We use MAC from ARP if available, otherwise unknown (maybe blocked or external?)
+            // If it's active but not in ARP, it might be the host itself or routing issue
+            const mac = arpEntries[host.ip];
+            if (mac) {
+                devices.push({
+                    ip_address: host.ip,
+                    mac_address: mac,
+                    name: host.hostname,
+                    latency: host.latency,
+                    status: 'online'
+                });
             }
         }
         return devices;
     }
 
-    async syncDiscoveries(discoveries) {
-        for (const device of discoveries) {
+    async syncDatabase(activeDevices) {
+        // 1. Get current DB state
+        const [dbDevices] = await db.query('SELECT id, mac_address FROM devices');
+        const onlineMacs = new Set();
+
+        // 2. Sync Active Devices
+        for (const device of activeDevices) {
+            onlineMacs.add(device.mac_address);
             try {
-                // Check if device exists by MAC
-                const [existing] = await db.query(
-                    'SELECT id FROM devices WHERE mac_address = ?',
-                    [device.mac_address]
-                );
+                const [existing] = await db.query('SELECT id FROM devices WHERE mac_address = ?', [device.mac_address]);
 
-                if (existing.length === 0) {
-                    // Check by IP to resolve conflict
-                    const [conflict] = await db.query(
-                        'SELECT id FROM devices WHERE ip_address = ?',
-                        [device.ip_address]
+                if (existing.length > 0) {
+                    // Update existing
+                    await db.query(
+                        'UPDATE devices SET ip_address = ?, status = ?, last_seen = NOW() WHERE id = ?',
+                        [device.ip_address, 'online', existing[0].id]
                     );
-
+                    // Log Latency
+                    await this.logStatus(existing[0].id, 'online', device.latency);
+                } else {
+                    // Check if IP matches another device (Conflict)
+                    const [conflict] = await db.query('SELECT id FROM devices WHERE ip_address = ?', [device.ip_address]);
                     if (conflict.length > 0) {
-                        // IP Conflict: Update MAC
+                        // IP Conflict - Update the old device's MAC
                         await db.query(
-                            'UPDATE devices SET mac_address = ?, last_seen = NOW() WHERE id = ?',
-                            [device.mac_address, conflict[0].id]
+                            'UPDATE devices SET mac_address = ?, status = ?, last_seen = NOW() WHERE id = ?',
+                            [device.mac_address, 'online', conflict[0].id]
                         );
+                        await this.logStatus(conflict[0].id, 'online', device.latency);
                     } else {
-                        // Truly New Device
-                        await db.query(
-                            'INSERT INTO devices (name, ip_address, mac_address, status) VALUES (?, ?, ?, ?)',
+                        // New Device
+                        const [result] = await db.query(
+                            'INSERT INTO devices (name, ip_address, mac_address, status, last_seen) VALUES (?, ?, ?, ?, NOW())',
                             [device.name, device.ip_address, device.mac_address, 'online']
                         );
+                        await this.logStatus(result.insertId, 'online', device.latency);
                     }
-                } else {
-                    // Update IP if changed
-                    await db.query(
-                        'UPDATE devices SET ip_address = ?, last_seen = NOW() WHERE id = ?',
-                        [device.ip_address, existing[0].id]
-                    );
                 }
             } catch (err) {
-                console.error(`Error syncing device ${device.ip_address}:`, err.message);
+                console.error(`Error syncing ${device.ip_address}:`, err.message);
             }
         }
-    }
 
-    async updateDeviceStatuses() {
-        try {
-            // Get all devices from DB
-            const [devices] = await db.query('SELECT id, ip_address FROM devices');
-
-            // Ping each device
-            for (const device of devices) {
-                const result = await this.pingDevice(device.ip_address);
-                const status = result.alive ? 'online' : 'offline';
-                const latency = result.latency || null;
-
-                // Update Status
-                await db.query(
-                    'UPDATE devices SET status = ? WHERE id = ?',
-                    [status, device.id]
-                );
-
-                // Log Status History
-                await this.logStatus(device.id, status, latency);
+        // 3. Mark Offline Devices
+        for (const dbDev of dbDevices) {
+            if (!onlineMacs.has(dbDev.mac_address)) {
+                await db.query('UPDATE devices SET status = ? WHERE id = ?', ['offline', dbDev.id]);
             }
-        } catch (err) {
-            console.error('Error updating statuses:', err);
-        }
-    }
-
-    async pingDevice(ip) {
-        try {
-            // Ping 1 packet, timeout 1s
-            const { stdout } = await execPromise(`ping -c 1 -W 1 ${ip}`);
-
-            // Extract latency (time=X.X ms)
-            const timeMatch = stdout.match(/time=([\d.]+)/);
-            const latency = timeMatch ? parseFloat(timeMatch[1]) : 0;
-
-            return { alive: true, latency };
-        } catch (err) {
-            return { alive: false, latency: null };
         }
     }
 
     async logStatus(deviceId, status, latency) {
-        try {
-            await db.query(
-                'INSERT INTO status_logs (device_id, status, latency) VALUES (?, ?, ?)',
-                [deviceId, status, latency]
-            );
-        } catch (err) {
-            console.error('Error logging status:', err.message);
-        }
+        await db.query(
+            'INSERT INTO status_logs (device_id, status, latency) VALUES (?, ?, ?)',
+            [deviceId, status, latency]
+        );
     }
 }
 

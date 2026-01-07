@@ -103,6 +103,8 @@ fi
 
 # Check if MySQL service is running
 # Check for Ping utility (Required for active monitoring)
+# Check for Nmap (High Accuracy Scanning)
+
 print_info "Checking for Ping utility..."
 if command_exists ping; then
     print_success "Ping utility is installed"
