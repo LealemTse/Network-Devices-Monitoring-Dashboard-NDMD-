@@ -86,4 +86,16 @@ const storeStatusLog = async (status, deviceId, latency) => {
     )
 }
 
-module.exports = { getDevices, receiveMonitoringUpdate, getRefreshInterval }
+const networkScanner = require('../services/networkScanner');
+
+const triggerScan = async (req, res) => {
+    try {
+        const devices = await networkScanner.scan();
+        res.status(200).json({ message: "Network scan initiated", devicesFound: devices.length, devices });
+    } catch (err) {
+        console.error("Error triggering scan:", err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+module.exports = { getDevices, receiveMonitoringUpdate, getRefreshInterval, triggerScan }

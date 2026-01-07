@@ -102,6 +102,17 @@ else
 fi
 
 # Check if MySQL service is running
+# Check for Ping utility (Required for active monitoring)
+print_info "Checking for Ping utility..."
+if command_exists ping; then
+    print_success "Ping utility is installed"
+else
+    print_warning "Ping not found. Installing iputils-ping..."
+    sudo apt-get update
+    sudo apt-get install -y iputils-ping
+    print_success "Ping utility installed"
+fi
+
 print_info "Checking MySQL service status..."
 if sudo systemctl is-active --quiet mysql || sudo systemctl is-active --quiet mariadb; then
     print_success "MySQL service is running"
