@@ -4,20 +4,44 @@ const statusColors = {
     offline: "red",
     unstable: "yellow"
 }
+const redisClient = require('../config/redisClient');
+
 //sends dashboard overview ( count of total devices and currently online, offline and unstable devices)  for frontend
 const getDashboardOverview = async (req, res) => {
     try {
+        // Try to get cached data
+        try {
+            const cachedData = await redisClient.get('dashboard:overview');
+            if (cachedData) {
+                return res.status(200).json(JSON.parse(cachedData));
+            }
+        } catch (redisErr) {
+            console.error("Redis Cache Error:", redisErr.message);
+            // Continue to DB on redis error
+        }
+
         const [totalDevicesResult] = await db.query("SELECT COUNT(*) as total FROM devices");
         const [onlineDevicesResult] = await db.query("SELECT COUNT(*) as total FROM devices WHERE status = 'online'");
         const [offlineDevicesResult] = await db.query("SELECT COUNT(*) as total FROM devices WHERE status = 'offline'");
         const [unstableDevicesResult] = await db.query("SELECT COUNT(*) as total FROM devices WHERE status = 'unstable'");
 
-        res.status(200).json({
+        const data = {
             totalDevices: totalDevicesResult[0].total,
             onlineDevices: onlineDevicesResult[0].total,
             offlineDevices: offlineDevicesResult[0].total,
             unstableDevices: unstableDevicesResult[0].total
-        });
+        };
+
+        // Cache the result for 60 seconds
+        try {
+            await redisClient.set('dashboard:overview', JSON.stringify(data), {
+                EX: 60
+            });
+        } catch (err) {
+            console.error("Error setting redis cache:", err.message);
+        }
+
+        res.status(200).json(data);
 
     } catch (err) {
         console.error("Error getting dashboard overview:", err);

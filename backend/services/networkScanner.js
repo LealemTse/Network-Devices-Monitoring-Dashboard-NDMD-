@@ -5,6 +5,7 @@ const { exec } = require('child_process');
 const readFile = util.promisify(fs.readFile);
 const execPromise = util.promisify(exec);
 const db = require('../config/db');
+const redisClient = require('../config/redisClient');
 
 class NetworkScanner {
     constructor() {
@@ -37,6 +38,14 @@ class NetworkScanner {
 
             // 5. Update Database (Sync)
             await this.syncDatabase(devices);
+
+            // 6. Invalidate Redis Cache to refresh Dashboard
+            try {
+                await redisClient.del('dashboard:overview');
+                console.log("Redis cache invalidated (dashboard:overview)");
+            } catch (err) {
+                console.error("Error invalidating redis cache:", err.message);
+            }
 
             return devices;
         } catch (err) {

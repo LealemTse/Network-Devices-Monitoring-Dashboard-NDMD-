@@ -210,6 +210,10 @@ if [ -f "package-lock.json" ]; then
     npm ci  # Clean install using package-lock.json
 else
     npm install
+
+# Install Redis client for backend
+print_info "Installing Redis client for backend..."
+npm install redis
 fi
 
 print_success "Node modules installed successfully"
@@ -274,3 +278,15 @@ echo ""
 
 # Start the application
 npm start
+# 6. Frontend Setup
+print_info "Step 6: Setting up FRONTEND..."
+FRONTEND_DIR="$(dirname "$BACKEND_DIR")/frontend"
+
+if [ -d "$FRONTEND_DIR" ]; then
+    cd "$FRONTEND_DIR"
+    print_info "Installing frontend dependencies..."
+    npm install
+    print_success "Frontend dependencies installed"
+else
+    print_error "Frontend directory not found at $FRONTEND_DIR"
+fi

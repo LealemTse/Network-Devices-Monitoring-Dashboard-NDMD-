@@ -98,4 +98,19 @@ const triggerScan = async (req, res) => {
     }
 }
 
-module.exports = { getDevices, receiveMonitoringUpdate, getRefreshInterval, triggerScan }
+const getStatusLogs = async (req, res) => {
+    try {
+        const [logs] = await db.query(
+            `SELECT sl.id, sl.device_id, d.name as device_name, sl.status, sl.latency, sl.created_at as time
+             FROM status_logs sl
+             JOIN devices d ON sl.device_id = d.id
+             ORDER BY sl.created_at DESC LIMIT 100`
+        );
+        res.status(200).json({ logs: logs });
+    } catch (err) {
+        console.error("Error fetching status logs:", err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+module.exports = { getDevices, receiveMonitoringUpdate, getRefreshInterval, triggerScan, getStatusLogs }

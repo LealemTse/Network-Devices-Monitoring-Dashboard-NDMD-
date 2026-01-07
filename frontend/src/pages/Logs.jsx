@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import Navbar from "../components/Navbar";
-const BACKEND_URL = "http://localhost:3000/devices";
+
+// Correct Backend API for Status Logs
+const LOGS_URL = "http://localhost:5000/api/monitoring/status-logs";
 
 export default function Logs() {
   const [allLogs, setAllLogs] = useState([]);
@@ -14,26 +16,32 @@ export default function Logs() {
     const fetchLogs = async () => {
       try {
         setLoading(true);
-        const res = await fetch(BACKEND_URL, { signal: controller.signal });
+        const token = localStorage.getItem("token");
+        const res = await fetch(LOGS_URL, {
+          signal: controller.signal,
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
 
         if (!res.ok) throw new Error(`Failed to fetch: ${res.statusText}`);
 
-        const devices = await res.json();
+        const data = await res.json();
+        const logs = data.logs || [];
 
-        const flattened = devices.flatMap((dev) =>
-          dev.logs.map((log) => ({
-            ...log,
-            deviceName: dev.name,
-            parentDeviceId: dev.id,
-          }))
-        );
+        // Backend returns: { id, device_id, device_name, status, latency, time }
+        // Map to internal format if needed
+        const mappedLogs = logs.map(log => ({
+          ...log,
+          deviceName: log.device_name,
+          parentDeviceId: log.device_id,
+        }));
 
-        setAllLogs(
-          flattened.sort((a, b) => new Date(b.time) - new Date(a.time))
-        );
+        setAllLogs(mappedLogs);
         setError(null);
       } catch (err) {
         if (err.name !== "AbortError") {
+          console.error(err);
           setError("Could not load system logs. Please try again later.");
         }
       } finally {
@@ -82,17 +90,18 @@ export default function Logs() {
               <tr>
                 <th>Time</th>
                 <th>Device ID</th>
+                <th>Device Name</th>
                 <th>Status</th>
                 <th>Latency</th>
-                <th>Packet Loss</th>
               </tr>
             </thead>
             <tbody>
               {filteredLogs.length > 0 ? (
                 filteredLogs.map((log) => (
-                  <tr key={`${log.parentDeviceId}-${log.time}`}>
-                    <td data-label="Time">{log.time}</td>
+                  <tr key={`${log.id}-${log.time}`}>
+                    <td data-label="Time">{new Date(log.time).toLocaleString()}</td>
                     <td data-label="Device ID">{log.parentDeviceId}</td>
+                    <td data-label="Device Name">{log.deviceName}</td>
                     <td
                       data-label="Status"
                       className={`status-text ${log.status}`}
@@ -100,7 +109,6 @@ export default function Logs() {
                       {log.status}
                     </td>
                     <td data-label="Latency">{log.latency}ms</td>
-                    <td data-label="Packet Loss">{log.packetLoss}%</td>
                   </tr>
                 ))
               ) : (
