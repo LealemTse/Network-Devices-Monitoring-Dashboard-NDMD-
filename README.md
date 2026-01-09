@@ -25,6 +25,7 @@ The system consists of three main components:
 
 Ensure you have the following installed on your system:
 
+-   **Linux Machine**
 -   **Node.js** (v14+ recommended) & **npm**
 -   **Python 3.8+**
 -   **MySQL Server**

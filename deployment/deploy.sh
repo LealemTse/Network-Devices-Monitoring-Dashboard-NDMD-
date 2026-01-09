@@ -59,11 +59,36 @@ else
     sudo systemctl start redis-server
 fi
 
+
 if check_command ping; then
     success "Ping utility is ready."
 else
     info "Installing Ping utility..."
     sudo apt-get install -y iputils-ping
+fi
+
+# Python Setup
+if check_command python3; then
+    success "Python 3 is installed."
+else
+    info "Installing Python 3..."
+    sudo apt-get install -y python3
+fi
+
+# Check for pip
+if command -v pip3 &> /dev/null; then
+    success "pip3 is installed."
+else
+    info "Installing python3-pip..."
+    sudo apt-get install -y python3-pip
+fi
+
+# Check for venv
+if dpkg -s python3-venv &> /dev/null; then
+    success "python3-venv is installed."
+else
+    info "Installing python3-venv..."
+    sudo apt-get install -y python3-venv
 fi
 
 # 2. Interactive Configuration
@@ -205,7 +230,28 @@ node seed.js || error "Failed to seed database."
 success "Database Seeded."
 cd ..
 
-# 5. Skip Frontend Install (Served Static)
+# 5. Setup Monitoring Service (Python)
+info "Setting up Monitoring Service..."
+cd monitoring-service
+
+if [ ! -d "venv" ]; then
+    info "Creating virtual environment..."
+    python3 -m venv venv || error "Failed to create virtual environment."
+fi
+
+info "Installing Python dependencies..."
+# Activate venv for installation
+source venv/bin/activate
+# Check if requirements.txt exists in root or current dir (script expects it in root based on analysis)
+if [ -f "../requirements.txt" ]; then
+    pip install -r ../requirements.txt || error "Failed to install dependencies."
+else 
+   warn "requirements.txt not found in project root."
+fi
+deactivate
+cd ..
+
+# 6. Skip Frontend Install (Served Static)
 info "Frontend is now static/vanilla. Skipping npm install."
 
 success "Installation Complete!"

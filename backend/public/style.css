@@ -73,6 +73,7 @@ button:focus-visible {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: C059, sans-serif;
 }
 
 /* Base Variables (Light Mode Default) */
@@ -1266,7 +1267,6 @@ button:hover {
   background-color: white;
 }
 
-/* --- FUTURISTIC THEME ADDITIONS --- */
 
 /* Wrapper */
 .login-wrapper {
