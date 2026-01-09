@@ -175,7 +175,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f4f7fe;
-  /* Light background to make the white form pop */
+  
 }
 
 .login-form {
@@ -242,12 +242,10 @@ body {
 /* recovery page */
 
 .recovery-security-questions {
-  /* Layout & Sizing */
+
   padding: 10px 35px 10px 15px;
   min-width: 180px;
   font-size: 0.95rem;
-
-  /* Modern Styling */
   background-color: #ffffff;
   color: #333;
   border: 1.5px solid #e2e8f0;
@@ -278,7 +276,6 @@ body {
 
 .recovery-security-questions:focus {
   border-color: #4a148c;
-  /* Matches your brand color */
   box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
 }
 
@@ -344,7 +341,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* ===== MODERN NAVBAR COMPONENT ===== */
 
 .navbar {
   display: flex;
@@ -655,6 +651,12 @@ body {
 [data-theme='dark'] .status-card {
   background: var(--bg-secondary) !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .status-label {
+  background: var(--bg-secondary) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
 }
 
 [data-theme='dark'] .device-stat {
@@ -1422,7 +1424,7 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* Futuristic Table Components */
+
 .logdevice {
   width: 100%;
   border-collapse: collapse;
