@@ -1,0 +1,920 @@
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 104.6 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.14 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 6.68 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ✅ status: ONLINE
+ Latency: 27.83 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 119.07 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.16 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 92.95 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1297.02 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.0 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.18 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.37 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 69.85 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.37 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.13 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.27 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 4.93 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 93.57 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 76.92 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 517.51 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 74.84 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 96.74 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 122.84 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 27.98 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.24 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 78.49 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 415.46 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 336.34 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.82 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.13 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.35 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 3.79 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 297.34 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.85 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.23 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.64 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 158.81 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 169.45 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 6.51 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 2.06 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ✅ status: ONLINE
+ Latency: 4.1 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 277.75 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 82.9 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 62.4 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ✅ status: ONLINE
+ Latency: 200.68 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 87.22 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.29 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 47.3 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ✅ status: ONLINE
+ Latency: 442.6 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 245.67 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 104.37 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 92.54 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1903.38 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 1162.69 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 72.67 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.25 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 78.21 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 371.76 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 359.79 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 46.5 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.12 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 54.91 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1970.7 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 190.55 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 20.92 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.13 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.77 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 3.69 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 261.12 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.65 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.24 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.02 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 4.53 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 295.12 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 54.81 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 67.45 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 175.22 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLEWARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+
+ Latency: 1109.08 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 60.4 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 55.14 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1117.73 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 132.54 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 1.98 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 4.01 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 7.59 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 263.25 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 88.89 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 83.76 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1260.58 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 211.9 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ⚠️ status: UNSTABLE
+ Latency: 1321.42 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 20.7 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 124.67 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ⚠️ status: UNSTABLE
+ Latency: 1.67 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.12 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.87 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 68.11 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 343.63 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ⚠️ status: UNSTABLE
+ Latency: 7.84 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.16 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.76 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 146.1 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 421.28 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ⚠️ status: UNSTABLE
+ Latency: 51.69 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.32 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 62.85 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 264.97 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 305.17 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ⚠️ status: UNSTABLE
+ Latency: 55.9 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.21 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 48.75 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1183.32 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 145.88 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 17.14 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.18 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.35 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 32.47 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 295.58 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+
+ Checking Device-4 (192.168.1.4)...
+ ❌ status: OFFLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 184.33 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.17 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1397.42 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ⚠️ status: UNSTABLE
+ Latency: 18.68 ms
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 352.23 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 21.84 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.14 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.54 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 114.52 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ⚠️ status: UNSTABLE
+ Latency: 101.65 ms
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 432.76 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 79.14 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.35 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 4.63 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ✅ status: ONLINE
+ Latency: 83.86 ms
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 91.52 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 1.74 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.7 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 132.18 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ✅ status: ONLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 351.96 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 47.31 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.16 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 60.44 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 38.71 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ✅ status: ONLINE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 2.18 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.19 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 1.52 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ✅ status: ONLINE
+ Latency: 88.83 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ⚠️ status: UNSTABLE
+
+ Checking Device-7 (192.168.1.7)...
+ ⚠️ status: UNSTABLE
+ Latency: 35.23 ms
+
+Waiting 5 seconds before next cycle...
+
+
+ Checking Device-1 (192.168.1.1)...
+ ✅ status: ONLINE
+ Latency: 104.72 ms
+
+ Checking Device-5 (192.168.1.5)...
+ ✅ status: ONLINE
+ Latency: 0.15 ms
+
+ Checking Device-6 (192.168.1.6)...
+ ✅ status: ONLINE
+ Latency: 57.63 ms
+
+ Checking Device-3 (192.168.1.3)...
+ ⚠️ status: UNSTABLE
+ Latency: 1073.39 ms
+
+ Checking Device-4 (192.168.1.4)...
+ ⚠️ status: UNSTABLEWARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
+WARNING:root:Warning: Failed to fetch config from backend: 404 Client Error: Not Found for url: http://localhost:5000/api/config
