@@ -33,9 +33,13 @@ Ensure you have the following installed on your system:
 ## Installation
 
 1.  Clone the repository.
+ ```bash
+   git clone https://github.com/LealemTse/Network-Devices-Monitoring-Dashboard-NDMD-.git
+  ```
 2.  Run the deployment script:
     ```bash
-    ./deployment/deploy.sh
+     cd deployment
+    ./deploy.sh
     ```
     This will:
     -   Install Node.js, MySQL, Redis, Python3.
