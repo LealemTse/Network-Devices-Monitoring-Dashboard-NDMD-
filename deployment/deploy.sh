@@ -236,6 +236,7 @@ cd monitoring-service
 
 if [ ! -d "venv" ]; then
     info "Creating virtual environment..."
+    sudo apt install python3-venv || error "Failed to install virtual environment."
     python3 -m venv venv || error "Failed to create virtual environment."
 fi
 
@@ -244,7 +245,7 @@ info "Installing Python dependencies..."
 source venv/bin/activate
 # Check if requirements.txt exists in root or current dir (script expects it in root based on analysis)
 if [ -f "../requirements.txt" ]; then
-    pip install -r ../requirements.txt || error "Failed to install dependencies."
+    pip install requests || error "Failed to install dependencies."
 else 
    warn "requirements.txt not found in project root."
 fi
