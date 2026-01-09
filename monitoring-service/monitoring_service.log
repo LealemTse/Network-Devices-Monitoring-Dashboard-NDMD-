@@ -7392,3 +7392,517 @@
 2026-01-09 22:38:35 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
 2026-01-09 22:38:44 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
 2026-01-09 22:38:55 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:39:08 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:39:21 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:39:30 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:39:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:39:52 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:03 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:12 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:24 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:34 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:43 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:40:54 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:06 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:16 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:28 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:39 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:49 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:41:59 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:42:09 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:42:20 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:42:30 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:42:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:42:51 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:00 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:11 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:21 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:30 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:43:51 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:00 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:10 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:21 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:31 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:44:50 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:00 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:11 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:23 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:34 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:44 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:45:57 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:46:08 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:46:20 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:46:30 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:46:42 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:46:54 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:07 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:17 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:26 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:38 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:48 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:47:58 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:48:09 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:48:19 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:48:30 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:48:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:48:50 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:00 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:12 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:22 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:34 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:43 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:49:55 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:05 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:15 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:25 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:38 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:48 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:50:59 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:51:08 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:51:19 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:51:29 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:51:40 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:51:51 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:52:02 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:52:11 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:52:23 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:52:50 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:52:55 - Warning: Failed to fetch config from backend: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/configs (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+2026-01-09 22:53:01 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1029.47ms
+2026-01-09 22:53:02 - Device: Device-1 (192.168.1.1) | Status: UNSTABLE | Latency: 308.19ms
+2026-01-09 22:53:04 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 22:53:04 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 540.91ms
+2026-01-09 22:53:05 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 630.95ms
+2026-01-09 22:53:13 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1111.35ms
+2026-01-09 22:53:13 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 6.01ms
+2026-01-09 22:53:15 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:53:15 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 205.5ms
+2026-01-09 22:53:26 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1603.85ms
+2026-01-09 22:53:26 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.22ms
+2026-01-09 22:53:28 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:53:28 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 30.39ms
+2026-01-09 22:53:28 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 195.13ms
+2026-01-09 22:53:35 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 68.74ms
+2026-01-09 22:53:35 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 6.29ms
+2026-01-09 22:53:37 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:53:37 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 114.82ms
+2026-01-09 22:53:38 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 205.18ms
+2026-01-09 22:53:45 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 490.15ms
+2026-01-09 22:53:45 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 42.93ms
+2026-01-09 22:53:47 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 22:53:48 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 566.25ms
+2026-01-09 22:53:48 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 610.33ms
+2026-01-09 22:53:56 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 693.62ms
+2026-01-09 22:53:56 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 168.16ms
+2026-01-09 22:53:58 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:53:58 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 63.99ms
+2026-01-09 22:53:58 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 171.28ms
+2026-01-09 22:54:07 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1374.81ms
+2026-01-09 22:54:07 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 304.64ms
+2026-01-09 22:54:09 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 22:54:09 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 30.26ms
+2026-01-09 22:54:10 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 918.22ms
+2026-01-09 22:54:18 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 677.42ms
+2026-01-09 22:54:18 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 154.25ms
+2026-01-09 22:54:20 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 22:54:20 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 269.24ms
+2026-01-09 22:54:20 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 102.36ms
+2026-01-09 22:54:29 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1789.27ms
+2026-01-09 22:54:29 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 200.32ms
+2026-01-09 22:54:31 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.11ms
+2026-01-09 22:54:32 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 1161.64ms
+2026-01-09 22:54:33 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 301.66ms
+2026-01-09 22:54:40 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 122.81ms
+2026-01-09 22:54:40 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 73.66ms
+2026-01-09 22:54:42 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.35ms
+2026-01-09 22:54:42 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 1.75ms
+2026-01-09 22:54:42 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 285.07ms
+2026-01-09 22:54:51 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.45ms
+2026-01-09 22:54:53 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:54:54 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 748.91ms
+2026-01-09 22:54:54 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 91.15ms
+2026-01-09 22:55:02 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 456.73ms
+2026-01-09 22:55:02 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 19.51ms
+2026-01-09 22:55:04 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 22:55:04 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 539.6ms
+2026-01-09 22:55:05 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 915.53ms
+2026-01-09 22:55:12 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 2.36ms
+2026-01-09 22:55:12 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.63ms
+2026-01-09 22:55:14 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:55:14 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 61.44ms
+2026-01-09 22:55:14 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 220.56ms
+2026-01-09 22:55:22 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 561.89ms
+2026-01-09 22:55:22 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 129.65ms
+2026-01-09 22:55:24 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.11ms
+2026-01-09 22:55:24 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 40.67ms
+2026-01-09 22:55:25 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 268.61ms
+2026-01-09 22:55:32 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 464.37ms
+2026-01-09 22:55:32 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 24.12ms
+2026-01-09 22:55:34 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 22:55:35 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 831.89ms
+2026-01-09 22:55:35 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 296.49ms
+2026-01-09 22:55:42 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1.7ms
+2026-01-09 22:55:42 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.25ms
+2026-01-09 22:55:44 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:55:44 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 68.58ms
+2026-01-09 22:55:45 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 408.6ms
+2026-01-09 22:55:52 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 462.25ms
+2026-01-09 22:55:52 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 141.34ms
+2026-01-09 22:55:54 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:55:55 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 402.94ms
+2026-01-09 22:55:55 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 6.51ms
+2026-01-09 22:56:02 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 558.46ms
+2026-01-09 22:56:02 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.56ms
+2026-01-09 22:56:04 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:56:04 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 34.29ms
+2026-01-09 22:56:04 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 6.63ms
+2026-01-09 22:56:12 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 854.78ms
+2026-01-09 22:56:12 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.31ms
+2026-01-09 22:56:14 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:56:14 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 193.72ms
+2026-01-09 22:56:14 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 6.23ms
+2026-01-09 22:56:22 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 169.72ms
+2026-01-09 22:56:22 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.67ms
+2026-01-09 22:56:24 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:56:24 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 50.49ms
+2026-01-09 22:56:24 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 356.06ms
+2026-01-09 22:56:31 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 111.32ms
+2026-01-09 22:56:31 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.05ms
+2026-01-09 22:56:33 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:56:34 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 355.33ms
+2026-01-09 22:56:34 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 311.31ms
+2026-01-09 22:56:41 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 217.64ms
+2026-01-09 22:56:41 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 3.03ms
+2026-01-09 22:56:43 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:56:43 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 20.0ms
+2026-01-09 22:56:43 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 108.41ms
+2026-01-09 22:56:50 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 210.54ms
+2026-01-09 22:56:51 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.7ms
+2026-01-09 22:56:53 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.53ms
+2026-01-09 22:56:53 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 4.06ms
+2026-01-09 22:56:53 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 47.9ms
+2026-01-09 22:57:00 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 86.55ms
+2026-01-09 22:57:00 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.69ms
+2026-01-09 22:57:02 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:57:02 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 266.49ms
+2026-01-09 22:57:03 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 633.75ms
+2026-01-09 22:57:10 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 662.73ms
+2026-01-09 22:57:10 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.5ms
+2026-01-09 22:57:12 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:57:12 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.34ms
+2026-01-09 22:57:13 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 374.71ms
+2026-01-09 22:57:21 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 863.13ms
+2026-01-09 22:57:21 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.74ms
+2026-01-09 22:57:23 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:57:23 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 515.98ms
+2026-01-09 22:57:23 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 303.99ms
+2026-01-09 22:57:31 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 462.27ms
+2026-01-09 22:57:31 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.57ms
+2026-01-09 22:57:33 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:57:34 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 1155.31ms
+2026-01-09 22:57:35 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 928.57ms
+2026-01-09 22:57:43 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 757.51ms
+2026-01-09 22:57:43 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 114.7ms
+2026-01-09 22:57:45 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.21ms
+2026-01-09 22:57:45 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 21.62ms
+2026-01-09 22:57:46 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 1435.58ms
+2026-01-09 22:57:54 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 313.19ms
+2026-01-09 22:57:54 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 36.57ms
+2026-01-09 22:57:56 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 22:57:56 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 104.04ms
+2026-01-09 22:57:57 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 955.24ms
+2026-01-09 22:58:05 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 879.71ms
+2026-01-09 22:58:05 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 6.5ms
+2026-01-09 22:58:07 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:58:07 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 351.7ms
+2026-01-09 22:58:07 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 67.77ms
+2026-01-09 22:58:14 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 206.3ms
+2026-01-09 22:58:14 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 48.33ms
+2026-01-09 22:58:16 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:58:17 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 447.1ms
+2026-01-09 22:58:17 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 3.07ms
+2026-01-09 22:58:24 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1.87ms
+2026-01-09 22:58:24 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.58ms
+2026-01-09 22:58:26 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:58:26 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.41ms
+2026-01-09 22:58:26 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 4.06ms
+2026-01-09 22:58:33 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 329.8ms
+2026-01-09 22:58:33 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.53ms
+2026-01-09 22:58:35 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.18ms
+2026-01-09 22:58:35 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 133.17ms
+2026-01-09 22:58:36 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 313.16ms
+2026-01-09 22:58:43 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 345.61ms
+2026-01-09 22:58:43 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 97.83ms
+2026-01-09 22:58:45 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.17ms
+2026-01-09 22:58:45 - Device: Device-6 (192.168.1.6) | Status: UNSTABLE | Latency: 299.79ms
+2026-01-09 22:58:46 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 553.04ms
+2026-01-09 22:58:53 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 359.47ms
+2026-01-09 22:58:53 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 41.34ms
+2026-01-09 22:58:55 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:58:56 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 26.79ms
+2026-01-09 22:58:56 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 575.79ms
+2026-01-09 22:59:03 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 138.06ms
+2026-01-09 22:59:04 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 770.46ms
+2026-01-09 22:59:06 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:59:06 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.45ms
+2026-01-09 22:59:06 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 236.51ms
+2026-01-09 22:59:13 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 86.03ms
+2026-01-09 22:59:13 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.49ms
+2026-01-09 22:59:15 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:59:15 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 52.51ms
+2026-01-09 22:59:16 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 231.82ms
+2026-01-09 22:59:23 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 190.88ms
+2026-01-09 22:59:23 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 79.84ms
+2026-01-09 22:59:25 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:59:25 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 37.85ms
+2026-01-09 22:59:25 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 201.25ms
+2026-01-09 22:59:32 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 57.87ms
+2026-01-09 22:59:32 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.82ms
+2026-01-09 22:59:34 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 22:59:34 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 4.14ms
+2026-01-09 22:59:35 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 154.67ms
+2026-01-09 22:59:42 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 122.53ms
+2026-01-09 22:59:42 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.85ms
+2026-01-09 22:59:44 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 22:59:44 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.77ms
+2026-01-09 22:59:44 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 75.51ms
+2026-01-09 22:59:51 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 40.18ms
+2026-01-09 22:59:51 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.62ms
+2026-01-09 22:59:53 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 22:59:53 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 98.01ms
+2026-01-09 22:59:53 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 249.59ms
+2026-01-09 23:00:00 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 172.24ms
+2026-01-09 23:00:00 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 38.34ms
+2026-01-09 23:00:02 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:00:03 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 570.51ms
+2026-01-09 23:00:03 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 426.47ms
+2026-01-09 23:00:11 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 155.36ms
+2026-01-09 23:00:11 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.67ms
+2026-01-09 23:00:13 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:00:13 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.53ms
+2026-01-09 23:00:13 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 183.69ms
+2026-01-09 23:00:20 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 52.76ms
+2026-01-09 23:00:20 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.52ms
+2026-01-09 23:00:22 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:00:22 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.71ms
+2026-01-09 23:00:22 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 227.86ms
+2026-01-09 23:00:29 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 154.01ms
+2026-01-09 23:00:29 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.57ms
+2026-01-09 23:00:31 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:00:31 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 66.03ms
+2026-01-09 23:00:32 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 152.13ms
+2026-01-09 23:00:39 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 1.78ms
+2026-01-09 23:00:39 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.89ms
+2026-01-09 23:00:41 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:00:41 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.7ms
+2026-01-09 23:00:41 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 398.43ms
+2026-01-09 23:00:48 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 131.92ms
+2026-01-09 23:00:48 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.67ms
+2026-01-09 23:00:50 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:00:50 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 62.6ms
+2026-01-09 23:00:51 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 603.26ms
+2026-01-09 23:00:58 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 151.6ms
+2026-01-09 23:00:58 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.43ms
+2026-01-09 23:01:00 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:01:00 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 249.45ms
+2026-01-09 23:01:01 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 417.73ms
+2026-01-09 23:01:08 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 134.82ms
+2026-01-09 23:01:08 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 61.96ms
+2026-01-09 23:01:10 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:01:10 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.43ms
+2026-01-09 23:01:10 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 267.91ms
+2026-01-09 23:01:17 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 164.1ms
+2026-01-09 23:01:17 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.54ms
+2026-01-09 23:01:19 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.18ms
+2026-01-09 23:01:19 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 44.32ms
+2026-01-09 23:01:20 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 466.66ms
+2026-01-09 23:01:27 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 144.92ms
+2026-01-09 23:01:27 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.23ms
+2026-01-09 23:01:29 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:01:29 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 59.68ms
+2026-01-09 23:01:29 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 302.97ms
+2026-01-09 23:01:37 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 148.58ms
+2026-01-09 23:01:37 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.65ms
+2026-01-09 23:01:39 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:01:39 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.18ms
+2026-01-09 23:01:39 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 2.72ms
+2026-01-09 23:01:48 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 256.92ms
+2026-01-09 23:01:50 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:01:50 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 433.9ms
+2026-01-09 23:01:51 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 385.05ms
+2026-01-09 23:01:58 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 154.93ms
+2026-01-09 23:01:58 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.82ms
+2026-01-09 23:02:00 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 23:02:00 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.32ms
+2026-01-09 23:02:00 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 341.29ms
+2026-01-09 23:02:07 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 156.05ms
+2026-01-09 23:02:08 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 29.88ms
+2026-01-09 23:02:10 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 23:02:10 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 59.11ms
+2026-01-09 23:02:10 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 211.92ms
+2026-01-09 23:02:17 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 142.81ms
+2026-01-09 23:02:17 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.74ms
+2026-01-09 23:02:19 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:02:19 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 45.86ms
+2026-01-09 23:02:19 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 331.45ms
+2026-01-09 23:02:27 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 123.15ms
+2026-01-09 23:02:27 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.92ms
+2026-01-09 23:02:29 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:02:29 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.03ms
+2026-01-09 23:02:29 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 232.89ms
+2026-01-09 23:02:36 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 15.28ms
+2026-01-09 23:02:36 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.05ms
+2026-01-09 23:02:38 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:02:38 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.47ms
+2026-01-09 23:02:38 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 167.33ms
+2026-01-09 23:02:45 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 206.03ms
+2026-01-09 23:02:45 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.92ms
+2026-01-09 23:02:47 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:02:47 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 74.37ms
+2026-01-09 23:02:48 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 345.31ms
+2026-01-09 23:02:55 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 123.18ms
+2026-01-09 23:02:55 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.71ms
+2026-01-09 23:02:57 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:02:57 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 30.51ms
+2026-01-09 23:02:57 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 303.62ms
+2026-01-09 23:03:05 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 1075.57ms
+2026-01-09 23:03:05 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 97.92ms
+2026-01-09 23:03:08 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:03:08 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 54.07ms
+2026-01-09 23:03:08 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 419.79ms
+2026-01-09 23:03:15 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 81.83ms
+2026-01-09 23:03:15 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 3.33ms
+2026-01-09 23:03:17 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:03:17 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 60.11ms
+2026-01-09 23:03:18 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 313.08ms
+2026-01-09 23:03:25 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 2.93ms
+2026-01-09 23:03:25 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.49ms
+2026-01-09 23:03:27 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:03:27 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.76ms
+2026-01-09 23:03:27 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 588.53ms
+2026-01-09 23:03:35 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 250.86ms
+2026-01-09 23:03:35 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.33ms
+2026-01-09 23:03:37 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:03:37 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.37ms
+2026-01-09 23:03:37 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 132.26ms
+2026-01-09 23:03:44 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 154.86ms
+2026-01-09 23:03:44 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.48ms
+2026-01-09 23:03:46 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.42ms
+2026-01-09 23:03:46 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 20.62ms
+2026-01-09 23:03:46 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 169.67ms
+2026-01-09 23:03:53 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 7.66ms
+2026-01-09 23:03:53 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.85ms
+2026-01-09 23:03:55 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.35ms
+2026-01-09 23:03:55 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 48.45ms
+2026-01-09 23:03:55 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 147.1ms
+2026-01-09 23:04:03 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 773.46ms
+2026-01-09 23:04:03 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.41ms
+2026-01-09 23:04:05 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.19ms
+2026-01-09 23:04:06 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 743.79ms
+2026-01-09 23:04:06 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 3.71ms
+2026-01-09 23:04:13 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 64.99ms
+2026-01-09 23:04:13 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.46ms
+2026-01-09 23:04:15 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.19ms
+2026-01-09 23:04:15 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 106.17ms
+2026-01-09 23:04:15 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 418.6ms
+2026-01-09 23:04:23 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 4.01ms
+2026-01-09 23:04:23 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.57ms
+2026-01-09 23:04:25 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:04:25 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 63.47ms
+2026-01-09 23:04:25 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 430.78ms
+2026-01-09 23:04:32 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 142.12ms
+2026-01-09 23:04:32 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.74ms
+2026-01-09 23:04:34 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:04:34 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.95ms
+2026-01-09 23:04:35 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 311.46ms
+2026-01-09 23:04:42 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 276.13ms
+2026-01-09 23:04:42 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.63ms
+2026-01-09 23:04:44 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:04:44 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 32.34ms
+2026-01-09 23:04:44 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 304.02ms
+2026-01-09 23:04:51 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 49.66ms
+2026-01-09 23:04:51 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.71ms
+2026-01-09 23:04:53 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:04:53 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 138.47ms
+2026-01-09 23:04:54 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 401.67ms
+2026-01-09 23:05:01 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 403.62ms
+2026-01-09 23:05:01 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 162.44ms
+2026-01-09 23:05:03 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:05:04 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 550.2ms
+2026-01-09 23:05:13 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 95.15ms
+2026-01-09 23:05:13 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.91ms
+2026-01-09 23:05:15 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.12ms
+2026-01-09 23:05:15 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 16.58ms
+2026-01-09 23:05:15 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 279.38ms
+2026-01-09 23:05:23 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 188.89ms
+2026-01-09 23:05:23 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.4ms
+2026-01-09 23:05:25 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:05:25 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.5ms
+2026-01-09 23:05:25 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 337.68ms
+2026-01-09 23:05:32 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 219.23ms
+2026-01-09 23:05:32 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.56ms
+2026-01-09 23:05:34 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.17ms
+2026-01-09 23:05:34 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 37.78ms
+2026-01-09 23:05:34 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 154.53ms
+2026-01-09 23:05:41 - Device: Device-2 (192.168.1.11) | Status: UNSTABLE | Latency: 126.58ms
+2026-01-09 23:05:41 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.56ms
+2026-01-09 23:05:44 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:05:44 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 4.37ms
+2026-01-09 23:05:44 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 57.28ms
+2026-01-09 23:05:51 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 148.03ms
+2026-01-09 23:05:51 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.59ms
+2026-01-09 23:05:53 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:05:53 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.3ms
+2026-01-09 23:05:53 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 5.13ms
+2026-01-09 23:06:00 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 153.62ms
+2026-01-09 23:06:00 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 86.06ms
+2026-01-09 23:06:02 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:06:02 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 267.58ms
+2026-01-09 23:06:04 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 1618.54ms
+2026-01-09 23:06:11 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 13.86ms
+2026-01-09 23:06:11 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.79ms
+2026-01-09 23:06:13 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 23:06:13 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 62.63ms
+2026-01-09 23:06:13 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 302.72ms
+2026-01-09 23:06:20 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 2.04ms
+2026-01-09 23:06:20 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.79ms
+2026-01-09 23:06:22 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:06:22 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.25ms
+2026-01-09 23:06:22 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 5.0ms
+2026-01-09 23:06:29 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 2.44ms
+2026-01-09 23:06:29 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 2.09ms
+2026-01-09 23:06:31 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.28ms
+2026-01-09 23:06:32 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 94.23ms
+2026-01-09 23:06:32 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 307.02ms
+2026-01-09 23:06:39 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 143.8ms
+2026-01-09 23:06:39 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.84ms
+2026-01-09 23:06:41 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.14ms
+2026-01-09 23:06:41 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 29.16ms
+2026-01-09 23:06:41 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 348.96ms
+2026-01-09 23:06:49 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 152.24ms
+2026-01-09 23:06:49 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.99ms
+2026-01-09 23:06:51 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.13ms
+2026-01-09 23:06:51 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 2.12ms
+2026-01-09 23:06:51 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 51.94ms
+2026-01-09 23:06:58 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 129.82ms
+2026-01-09 23:06:58 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 99.28ms
+2026-01-09 23:07:00 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.15ms
+2026-01-09 23:07:00 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 21.86ms
+2026-01-09 23:07:00 - Device: Device-7 (192.168.1.7) | Status: ONLINE | Latency: 284.03ms
+2026-01-09 23:07:07 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 4.54ms
+2026-01-09 23:07:07 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.31ms
+2026-01-09 23:07:09 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.11ms
+2026-01-09 23:07:09 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 115.67ms
+2026-01-09 23:07:10 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 508.5ms
+2026-01-09 23:07:17 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 260.89ms
+2026-01-09 23:07:17 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.55ms
+2026-01-09 23:07:19 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.21ms
+2026-01-09 23:07:19 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 42.91ms
+2026-01-09 23:07:20 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 309.97ms
+2026-01-09 23:07:27 - Device: Device-2 (192.168.1.11) | Status: ONLINE | Latency: 77.35ms
+2026-01-09 23:07:27 - Device: Device-1 (192.168.1.1) | Status: ONLINE | Latency: 1.51ms
+2026-01-09 23:07:29 - Device: Device-5 (192.168.1.5) | Status: ONLINE | Latency: 0.16ms
+2026-01-09 23:07:29 - Device: Device-6 (192.168.1.6) | Status: ONLINE | Latency: 1.76ms
+2026-01-09 23:07:29 - Device: Device-7 (192.168.1.7) | Status: UNSTABLE | Latency: 486.11ms
