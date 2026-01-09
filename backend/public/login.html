@@ -14,29 +14,30 @@
         <div class="login-background"></div>
         <div class="login-container glass-effect">
             <div class="login-header">
+                <img src="assets/logo.png" alt="Logo" style="width: 70%; border-radius: 50%;">
                 <!-- Ensure you copy the image or use text fallback -->
-                <h1 class="login-title">NDMD Access Portal</h1>
-                <p class="login-subtitle">Secure Network Monitoring</p>
+                <h1 class="login-title" style="display: flex; text-align: center;">NDMD Access Portal</h1>
+                <p class="login-subtitle" style="text-align: center;">Secure Network Monitoring</p>
             </div>
 
             <form class="login-form-content" onsubmit="handleLogin(event)">
                 <div id="error-msg" class="error-message" style="display: none;"></div>
 
                 <div class="input-group">
-                    <label class="login-label">Admin ID</label>
+                    <label class="login-label">Username</label>
                     <input type="text" id="username" class="input futuristic-input" placeholder="Enter Username"
                         value="admin" required>
                 </div>
 
                 <div class="input-group">
-                    <label class="login-label">Secure Key</label>
+                    <label class="login-label">Password</label>
                     <input type="password" id="password" class="input futuristic-input" placeholder="Enter Password"
                         required>
                 </div>
 
-                <button class="login-submit futuristic-btn" type="submit">Initialize Session</button>
+                <button class="login-submit futuristic-btn" type="submit">Enter</button>
 
-                <a href="forgot-password.html" class="forgot-password futuristic-link">Lost Credentials?</a>
+                <a href="forgot-password.html" class="forgot-password futuristic-link">Forgot Password?</a>
             </form>
         </div>
     </div>

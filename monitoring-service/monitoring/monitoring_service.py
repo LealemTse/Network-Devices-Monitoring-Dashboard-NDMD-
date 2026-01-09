@@ -2,6 +2,16 @@ import time   #used for time.sleep() to pause between monitoring cycles
 from monitoring.device_monitor import DeviceMonitor
 from backend_communication import fetch_devices, send_status_update 
 from config.settings import PING_INTERVAL_CONFIG
+import logging
+from datetime import datetime
+
+# Setup logging
+logging.basicConfig(
+    filename='monitoring_service.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 class MonitoringService:
     def __init__(self,timeout=2):
@@ -45,6 +55,11 @@ class MonitoringService:
                         result=device.check_device()
                         if result:
                             send_status_update(result)  #this sends the device status to the backend
+                            
+                            # Log to file
+                            log_msg = f"Device: {result['name']} ({result['ip_address']}) | Status: {result['status']} | Latency: {result['latency_ms']}ms"
+                            logging.info(log_msg)
+                            print(f"Logged: {log_msg}")
 
                     except Exception as e:
                         print(f"Error monitoring device {device.name}: {e}")  #one device failing doesnot cause the loop to crash

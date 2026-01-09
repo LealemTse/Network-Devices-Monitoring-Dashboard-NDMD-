@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Frontend running on http://localhost:${PORT}`);
     console.log(`Login page: http://localhost:${PORT}/login.html`);
 });

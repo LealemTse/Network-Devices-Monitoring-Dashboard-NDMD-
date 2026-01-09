@@ -49,4 +49,4 @@ class Configuration:
 
 # Backend endpoint returning JSON like: {"ping_interval": 10}
 PING_INTERVAL_CONFIG = Configuration(config_key="ping_interval", default_value=5, min_value=1, max_value=60,
-                                     backend_url="http://localhost:5000/api/config")
+                                     backend_url="http://localhost:5000/api/configs")

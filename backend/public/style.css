@@ -626,27 +626,27 @@ body {
 }
 
 /* ===== DARK MODE - TABLES ===== */
-[data-theme='dark'] .futuristic-table {
+[data-theme='dark'] .logdevice {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
 }
 
-[data-theme='dark'] .futuristic-table thead th {
+[data-theme='dark'] .logdevice thead th {
   background-color: var(--bg-primary);
   color: var(--text-muted);
   border-color: var(--border-color);
 }
 
-[data-theme='dark'] .futuristic-table tbody tr {
+[data-theme='dark'] .logdevice tbody tr {
   background-color: var(--bg-secondary);
   border-color: var(--border-color);
 }
 
-[data-theme='dark'] .futuristic-table tbody tr:hover {
+[data-theme='dark'] .logdevice tbody tr:hover {
   background-color: rgba(109, 40, 217, 0.1);
 }
 
-[data-theme='dark'] .futuristic-table td {
+[data-theme='dark'] .logdevice td {
   color: var(--text-primary);
   border-color: var(--border-color);
 }
@@ -1291,11 +1291,10 @@ button:hover {
   z-index: 1;
 }
 
-/* Glassmorphism Container */
+
 .login-container.glass-effect {
   z-index: 2;
-  background: rgba(255, 255, 255, 0.05);
-  /* Very transparent */
+  background: rgba(190, 54, 54, 0);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1303,6 +1302,8 @@ button:hover {
   border-radius: 24px;
   padding: 40px;
   width: 100%;
+  height: 65%;
+  max-height: 650px;
   max-width: 480px;
   display: flex;
   flex-direction: column;
@@ -1329,6 +1330,9 @@ button:hover {
   color: #fff;
   text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-self: center;
+  align-self: center;
 }
 
 .login-subtitle {
@@ -1418,42 +1422,44 @@ button:hover {
   font-size: 0.9rem;
 }
 
-/* Futuristic Table and Logs Styles */
-.futuristic-table {
+/* Futuristic Table Components */
+.logdevice {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
-  /* Spacing between rows */
-  margin-top: 10px;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.futuristic-table thead th {
-  background: rgba(255, 255, 255, 0.05);
-  color: #a78bfa;
-  /* Light purple */
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+.logdevice thead th {
+  background: #f8fafc;
+  color: #64748b;
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.85rem;
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.futuristic-table tbody tr {
-  background: rgba(255, 255, 255, 0.02);
-  transition: all 0.3s ease;
+.logdevice tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
 }
 
-.futuristic-table tbody tr:hover {
-  background: rgba(139, 92, 246, 0.1);
-  transform: scale(1.005);
+.logdevice tbody tr:last-child {
+  border-bottom: none;
 }
 
-.futuristic-table td {
-  padding: 15px;
-  color: #e2e8f0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.logdevice tbody tr:hover {
+  background: #f8fafc;
+}
+
+.logdevice td {
+  padding: 1rem;
+  color: #334155;
+  font-size: 0.95rem;
 }
 
 .status-badge {
