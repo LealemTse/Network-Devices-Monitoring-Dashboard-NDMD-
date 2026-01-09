@@ -26,29 +26,20 @@ The system consists of three main components:
 Ensure you have the following installed on your system:
 
 -   **Linux Machine**
--   **Node.js** (v14+ recommended) & **npm**
--   **Python 3.8+**
--   **MySQL Server**
--   **Redis Server**
 
 # Deployment Guide
 
-## Prerequisites
-
--   Ensure ports **3000** (Frontend) and **5000** (Backend) are open on your firewall.
-    -   Example for `ufw`:
-        ```bash
-        sudo ufw allow 3000/tcp
-        sudo ufw allow 5000/tcp
-        ```
--   Ensure you have internet access to install dependencies.
 
 ## Installation
 
 1.  Clone the repository.
+ ```bash
+   git clone https://github.com/LealemTse/Network-Devices-Monitoring-Dashboard-NDMD-.git
+  ```
 2.  Run the deployment script:
     ```bash
-    ./deployment/deploy.sh
+     cd deployment
+    ./deploy.sh
     ```
     This will:
     -   Install Node.js, MySQL, Redis, Python3.
