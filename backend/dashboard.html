@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDMD Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar injected by app.js -->
+
+    <main class="dashboard">
+        <!-- Stats -->
+        <div class="status-grid" id="stats-grid">
+            <div class="status-card glass-effect total">
+                <div class="status-label">Total</div>
+                <div class="status-value" id="stat-total">0</div>
+            </div>
+            <div class="status-card glass-effect">
+                <div class="status-label">Online</div>
+                <div class="status-value online" id="stat-online">0</div>
+            </div>
+            <div class="status-card glass-effect">
+                <div class="status-label">Unstable</div>
+                <div class="status-value unstable" id="stat-unstable">0</div>
+            </div>
+            <div class="status-card glass-effect">
+                <div class="status-label">Offline</div>
+                <div class="status-value offline" id="stat-offline">0</div>
+            </div>
+        </div>
+
+        <!-- Device Table -->
+        <section class="device-stat glass-effect">
+            <header>
+                <h2>Device Status</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="add-btn" onclick="triggerScan()" id="scan-btn"
+                        style="background: rgba(139, 92, 246, 0.2); border: 1px solid #8b5cf6;">
+                        <i class="fas fa-search" id="scan-icon"></i> Scan Net
+                    </button>
+                    <button class="add-btn" onclick="openModal('add')">+Add Device</button>
+                </div>
+            </header>
+
+            <div class="device-table-container">
+                <table class="device-pannel">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>IP Address</th>
+                            <th>MAC Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="device-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center;">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Add Modal -->
+        <div class="modal-overlay" id="add-modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Add New Device</h3>
+                <form onsubmit="handleAdd(event)" class="add-form">
+                    <label>Name</label><input class="input-field" id="add-name" required>
+                    <label>IP Address</label><input class="input-field" id="add-ip" required>
+                    <label>MAC Address (Optional)</label><input class="input-field" id="add-mac"
+                        placeholder="Auto-detect">
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" onclick="closeModal('add')">Cancel</button>
+                        <button type="submit" class="confirm-btn">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal-overlay" id="edit-modal" style="display: none;">
+            <!-- filled dynamically or fixed inputs -->
+            <div class="modal-content">
+                <h3>Edit Device</h3>
+                <form onsubmit="handleEdit(event)" class="add-form">
+                    <input type="hidden" id="edit-id">
+                    <label>Name</label><input class="input-field" id="edit-name" required>
+                    <label>IP Address</label><input class="input-field" id="edit-ip" required>
+                    <label>MAC Address</label><input class="input-field" id="edit-mac" required>
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" onclick="closeModal('edit')">Cancel</button>
+                        <button type="submit" class="confirm-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        // --- PAGE LOGIC ---
+        const authHeader = { 'Authorization': `Bearer ${getToken()}`, 'Content-Type': 'application/json' };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchStats();
+            fetchDevices();
+        });
+
+        async function fetchStats() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/dashboard/overview`, { headers: authHeader });
+                const data = await res.json();
+                document.getElementById('stat-total').innerText = data.totalDevices;
+                document.getElementById('stat-online').innerText = data.onlineDevices;
+                document.getElementById('stat-unstable').innerText = data.unstableDevices;
+                document.getElementById('stat-offline').innerText = data.offlineDevices;
+            } catch (e) { console.error(e); }
+        }
+
+        async function fetchDevices() {
+            const tbody = document.getElementById('device-body');
+            try {
+                // Add cache-busting to ensure fresh data
+                const res = await fetch(`${API_BASE_URL}/devices?t=${Date.now()}`, {
+                    headers: authHeader,
+                    cache: 'no-cache'
+                });
+
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                }
+
+                const data = await res.json();
+                console.log('Fetched devices:', data);
+                const devices = data.devices || [];
+
+                if (devices.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No devices found. Try scanning.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = devices.map(d => `
+                    <tr>
+                        <td data-label="Name">${d.name}</td>
+                        <td data-label="Status">
+                            <i class="fas ${getStatusIcon(d.status)}" style="color: ${getStatusColor(d.status)}"></i>
+                        </td>
+                        <td data-label="IP">${d.ip_address}</td>
+                        <td data-label="MAC">${d.mac_address || 'N/A'}</td>
+                        <td data-label="Action">
+                            <button class="menu-trigger" onclick="openEditModal(${d.id}, '${d.name}', '${d.ip_address}', '${d.mac_address || ''}')"><i class="fas fa-edit"></i></button>
+                            <button class="menu-trigger" onclick="deleteDevice(${d.id})" style="color: #ef4444; margin-left: 10px;"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (e) {
+                console.error('Error fetching devices:', e);
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #ef4444;">Error loading devices. Check console.</td></tr>';
+            }
+        }
+
+        async function triggerScan() {
+            const btn = document.getElementById('scan-btn');
+            const icon = document.getElementById('scan-icon');
+            btn.disabled = true;
+            icon.classList.add('fa-spin');
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/monitoring/scan`, {
+                    method: 'POST',
+                    headers: authHeader,
+                    cache: 'no-cache' // Force fresh data
+                });
+
+                if (!res.ok) {
+                    throw new Error(`Scan failed with status: ${res.status}`);
+                }
+
+                const data = await res.json();
+                console.log('Scan results:', data);
+
+                // Give database a moment to fully sync
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Refresh device list and stats
+                await fetchDevices();
+                await fetchStats();
+
+                showToast(`Scan complete. Found ${data.devicesFound} device(s).`);
+            } catch (e) {
+                console.error('Scan error:', e);
+                showToast('Scan failed: ' + e.message, 'error');
+            } finally {
+                btn.disabled = false;
+                icon.classList.remove('fa-spin');
+            }
+        }
+
+        async function handleAdd(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-name').value;
+            const ip = document.getElementById('add-ip').value;
+            const mac = document.getElementById('add-mac').value;
+
+            try {
+                await fetch(`${API_BASE_URL}/devices`, {
+                    method: 'POST', headers: authHeader,
+                    body: JSON.stringify({ name, ip_address: ip, mac_address: mac })
+                });
+                closeModal('add');
+                showToast('Device added');
+                fetchDevices();
+            } catch (e) { alert('Error adding device'); }
+        }
+
+        async function handleEdit(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-id').value;
+            const name = document.getElementById('edit-name').value;
+            const ip = document.getElementById('edit-ip').value;
+            const mac = document.getElementById('edit-mac').value;
+
+            try {
+                await fetch(`${API_BASE_URL}/devices/${id}`, {
+                    method: 'PUT', headers: authHeader,
+                    body: JSON.stringify({ name, ip_address: ip, mac_address: mac })
+                });
+                closeModal('edit');
+                showToast('Device updated');
+                fetchDevices();
+            } catch (e) { alert('Error updating'); }
+        }
+
+        async function deleteDevice(id) {
+            if (!confirm("Are you sure?")) return;
+            try {
+                await fetch(`${API_BASE_URL}/devices/${id}`, { method: 'DELETE', headers: authHeader });
+                showToast('Device deleted');
+                fetchDevices();
+                fetchStats();
+            } catch (e) { alert('Error deleting'); }
+        }
+
+        // --- UTILS ---
+        function getStatusIcon(status) {
+            if (status === 'online') return 'fa-check-circle';
+            if (status === 'unstable') return 'fa-exclamation-triangle';
+            return 'fa-times-circle';
+        }
+        function getStatusColor(status) {
+            if (status === 'online') return '#22c55e';
+            if (status === 'unstable') return '#f59e0b';
+            return '#ef4444';
+        }
+        function openModal(type) { document.getElementById(`${type}-modal`).style.display = 'flex'; }
+        function closeModal(type) { document.getElementById(`${type}-modal`).style.display = 'none'; }
+
+        function openEditModal(id, name, ip, mac) {
+            document.getElementById('edit-id').value = id;
+            document.getElementById('edit-name').value = name;
+            document.getElementById('edit-ip').value = ip;
+            document.getElementById('edit-mac').value = mac;
+            openModal('edit');
+        }
+    </script>
+</body>
+
+</html>
