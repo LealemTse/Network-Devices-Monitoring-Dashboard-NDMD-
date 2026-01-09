@@ -321,6 +321,5 @@ wait
 EOT
 =======
 
->>>>>>> 14781df1198935e3e5f54028b55edd64b73b2cd5
 
 chmod +x start.sh
