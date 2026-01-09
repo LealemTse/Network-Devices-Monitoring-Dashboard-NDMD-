@@ -1,5 +1,5 @@
-from ping_service import ping_device
-from status_classifier import classify_status
+from .ping_service import ping_device
+from .status_classifier import classify_status
 from datetime import datetime,timezone
 
 # CLASS: DeviceMonitor 

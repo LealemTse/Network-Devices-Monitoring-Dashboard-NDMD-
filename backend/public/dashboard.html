@@ -110,6 +110,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             fetchStats();
             fetchDevices();
+
+            // Auto-refresh every 5 seconds for real-time updates
+            setInterval(() => {
+                fetchStats();
+                fetchDevices();
+            }, 5000);
         });
 
         async function fetchStats() {
@@ -126,8 +132,18 @@
         async function fetchDevices() {
             const tbody = document.getElementById('device-body');
             try {
-                const res = await fetch(`${API_BASE_URL}/devices`, { headers: authHeader });
+                // Add cache-busting to ensure fresh data
+                const res = await fetch(`${API_BASE_URL}/devices?t=${Date.now()}`, {
+                    headers: authHeader,
+                    cache: 'no-cache'
+                });
+
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                }
+
                 const data = await res.json();
+                console.log('Fetched devices:', data);
                 const devices = data.devices || [];
 
                 if (devices.length === 0) {
@@ -142,14 +158,17 @@
                             <i class="fas ${getStatusIcon(d.status)}" style="color: ${getStatusColor(d.status)}"></i>
                         </td>
                         <td data-label="IP">${d.ip_address}</td>
-                        <td data-label="MAC">${d.mac_address}</td>
+                        <td data-label="MAC">${d.mac_address || 'N/A'}</td>
                         <td data-label="Action">
-                            <button class="menu-trigger" onclick="openEditModal(${d.id}, '${d.name}', '${d.ip_address}', '${d.mac_address}')"><i class="fas fa-edit"></i></button>
+                            <button class="menu-trigger" onclick="openEditModal(${d.id}, '${d.name}', '${d.ip_address}', '${d.mac_address || ''}')"><i class="fas fa-edit"></i></button>
                             <button class="menu-trigger" onclick="deleteDevice(${d.id})" style="color: #ef4444; margin-left: 10px;"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
                 `).join('');
-            } catch (e) { tbody.innerHTML = '<tr><td colspan="5">Error loading devices</td></tr>'; }
+            } catch (e) {
+                console.error('Error fetching devices:', e);
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #ef4444;">Error loading devices. Check console.</td></tr>';
+            }
         }
 
         async function triggerScan() {
@@ -159,13 +178,31 @@
             icon.classList.add('fa-spin');
 
             try {
-                const res = await fetch(`${API_BASE_URL}/monitoring/scan`, { method: 'POST', headers: authHeader });
+                const res = await fetch(`${API_BASE_URL}/monitoring/scan`, {
+                    method: 'POST',
+                    headers: authHeader,
+                    cache: 'no-cache' // Force fresh data
+                });
+
+                if (!res.ok) {
+                    throw new Error(`Scan failed with status: ${res.status}`);
+                }
+
                 const data = await res.json();
-                showToast(`Scan complete. Found ${data.devicesFound} devices.`);
-                fetchDevices();
-                fetchStats();
-            } catch (e) { showToast('Scan failed', 'error'); }
-            finally {
+                console.log('Scan results:', data);
+
+                // Give database a moment to fully sync
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Refresh device list and stats
+                await fetchDevices();
+                await fetchStats();
+
+                showToast(`Scan complete. Found ${data.devicesFound} device(s).`);
+            } catch (e) {
+                console.error('Scan error:', e);
+                showToast('Scan failed: ' + e.message, 'error');
+            } finally {
                 btn.disabled = false;
                 icon.classList.remove('fa-spin');
             }

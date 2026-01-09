@@ -36,7 +36,7 @@
 
                 <button class="login-submit futuristic-btn" type="submit">Initialize Session</button>
 
-                <a href="/forgot-password.html" class="forgot-password futuristic-link">Lost Credentials?</a>
+                <a href="forgot-password.html" class="forgot-password futuristic-link">Lost Credentials?</a>
             </form>
         </div>
     </div>
@@ -60,7 +60,7 @@
                 if (res.ok) {
                     localStorage.setItem('token', data.accessToken);
                     localStorage.setItem('user', JSON.stringify(data.user));
-                    window.location.href = '/index.html'; // Redirect to Main Hub
+                    window.location.href = 'index.html';
                 } else {
                     errDiv.innerText = data.message || "Login failed";
                     errDiv.style.display = 'block';

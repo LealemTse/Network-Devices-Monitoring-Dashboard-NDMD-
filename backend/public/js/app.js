@@ -32,9 +32,9 @@ function toggleTheme() {
 
 // --- NAVBAR ---
 function renderNavbar() {
-    const nav = document.createElement('nav');
-    nav.className = 'navbar';
-    nav.innerHTML = `
+    const navBar = document.createElement('div');
+    navBar.className = 'navbar';
+    navBar.innerHTML = `
         <h2 class="logo">NDMD</h2>
         <div style="display: flex; align-items: center; gap: 20px;">
              <button id="theme-btn" class="theme-btn" title="Toggle Theme">🌙</button>
@@ -45,13 +45,13 @@ function renderNavbar() {
            <li class="link"><a href="/dashboard.html">Dashboard</a></li>
            <li class="link"><a href="/logs.html">Logs</a></li>
            <li class="link"><a href="/settings.html">Settings</a></li>
-           <li class="link"><button class="logout" onclick="logout()">Logout</button></li>
+           <li class="link mobile-only"><button class="logout" onclick="logout()">Logout</button></li>
         </ul>
         <button class="logout desktop-only" onclick="logout()">Logout</button>
     `;
 
     // Insert at top of body
-    document.body.prepend(nav);
+    document.body.prepend(navBar);
 
     // Bind Theme Button
     const btn = document.getElementById('theme-btn');

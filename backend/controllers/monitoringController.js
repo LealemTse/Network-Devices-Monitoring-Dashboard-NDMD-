@@ -109,10 +109,10 @@ const getStatusLogs = async (req, res) => {
 
         // Fetch from DB if miss (Include IP Address)
         const [logs] = await db.query(
-            `SELECT sl.id, sl.device_id, d.name as device_name, d.ip_address, sl.status, sl.latency, sl.created_at as time
+            `SELECT sl.id, sl.device_id, d.name as device_name, d.ip_address, sl.status, sl.latency, sl.timestamp as time
              FROM status_logs sl
              JOIN devices d ON sl.device_id = d.id
-             ORDER BY sl.created_at DESC LIMIT 100`
+             ORDER BY sl.timestamp DESC LIMIT 100`
         );
 
         // Cache for 10 seconds (logs update frequently during scans)

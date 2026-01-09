@@ -97,8 +97,8 @@ class NetworkScanner {
 
     async checkIP(ip) {
         try {
-            // Ping 1 packet, timeout 1s
-            const { stdout } = await execPromise(`ping -c 1 -W 1 ${ip}`);
+            // Ping 1 packet, timeout 2s
+            const { stdout } = await execPromise(`ping -c 1 -W 2 ${ip}`);
             // Extract latency
             const timeMatch = stdout.match(/time=([\d.]+)/);
             const latency = timeMatch ? parseFloat(timeMatch[1]) : 0;
@@ -175,71 +175,86 @@ class NetworkScanner {
     mergeDeviceData(activeHosts, arpEntries) {
         const devices = [];
         for (const host of activeHosts) {
-            // We use MAC from ARP if available, otherwise unknown (maybe blocked or external?)
-            // If it's active but not in ARP, it might be the host itself or routing issue
-            const mac = arpEntries[host.ip];
-            if (mac) {
-                devices.push({
-                    ip_address: host.ip,
-                    mac_address: mac,
-                    name: host.hostname,
-                    latency: host.latency,
-                    status: host.latency > 200 ? 'unstable' : 'online'
-                });
-            }
+            // Get MAC from ARP if available, otherwise use 'Unknown'
+            const mac = arpEntries[host.ip] || 'Unknown';
+
+            // Include all active hosts, even without MAC address
+            devices.push({
+                ip_address: host.ip,
+                mac_address: mac,
+                name: host.hostname,
+                latency: host.latency,
+                status: host.latency > 200 ? 'unstable' : 'online'
+            });
         }
+        console.log(`Merged ${devices.length} devices with ARP data`);
         return devices;
     }
 
     async syncDatabase(activeDevices) {
         // 1. Get current DB state
-        const [dbDevices] = await db.query('SELECT id, mac_address FROM devices');
+        const [dbDevices] = await db.query('SELECT id, ip_address, mac_address FROM devices');
+        const onlineIPs = new Set();
         const onlineMacs = new Set();
 
         // 2. Sync Active Devices
         for (const device of activeDevices) {
-            onlineMacs.add(device.mac_address);
-            try {
-                const [existing] = await db.query('SELECT id FROM devices WHERE mac_address = ?', [device.mac_address]);
+            onlineIPs.add(device.ip_address);
+            if (device.mac_address !== 'Unknown') {
+                onlineMacs.add(device.mac_address);
+            }
 
-                if (existing.length > 0) {
-                    // Update existing
-                    await db.query(
-                        'UPDATE devices SET ip_address = ?, status = ?, last_seen = NOW() WHERE id = ?',
-                        [device.ip_address, device.status, existing[0].id]
-                    );
-                    // Log Latency
+            try {
+                let existing = null;
+
+                // Try to find by MAC first (if known)
+                if (device.mac_address !== 'Unknown') {
+                    [existing] = await db.query('SELECT id FROM devices WHERE mac_address = ?', [device.mac_address]);
+                }
+
+                // If not found by MAC, try by IP
+                if (!existing || existing.length === 0) {
+                    [existing] = await db.query('SELECT id FROM devices WHERE ip_address = ?', [device.ip_address]);
+                }
+
+                if (existing && existing.length > 0) {
+                    // Update existing device
+                    const updateQuery = device.mac_address !== 'Unknown'
+                        ? 'UPDATE devices SET ip_address = ?, mac_address = ?, status = ? WHERE id = ?'
+                        : 'UPDATE devices SET ip_address = ?, status = ? WHERE id = ?';
+
+                    const updateParams = device.mac_address !== 'Unknown'
+                        ? [device.ip_address, device.mac_address, device.status, existing[0].id]
+                        : [device.ip_address, device.status, existing[0].id];
+
+                    await db.query(updateQuery, updateParams);
                     await this.logStatus(existing[0].id, device.status, device.latency);
+                    console.log(`Updated device: ${device.ip_address} (${device.name})`);
                 } else {
-                    // Check if IP matches another device (Conflict)
-                    const [conflict] = await db.query('SELECT id FROM devices WHERE ip_address = ?', [device.ip_address]);
-                    if (conflict.length > 0) {
-                        // IP Conflict - Update the old device's MAC
-                        await db.query(
-                            'UPDATE devices SET mac_address = ?, status = ?, last_seen = NOW() WHERE id = ?',
-                            [device.mac_address, 'online', conflict[0].id]
-                        );
-                        await this.logStatus(conflict[0].id, 'online', device.latency);
-                    } else {
-                        // New Device
-                        const [result] = await db.query(
-                            'INSERT INTO devices (name, ip_address, mac_address, status, last_seen) VALUES (?, ?, ?, ?, NOW())',
-                            [device.name, device.ip_address, device.mac_address, 'online']
-                        );
-                        await this.logStatus(result.insertId, 'online', device.latency);
-                    }
+                    // New Device - Insert it
+                    const [result] = await db.query(
+                        'INSERT INTO devices (name, ip_address, mac_address, status) VALUES (?, ?, ?, ?)',
+                        [device.name, device.ip_address, device.mac_address, device.status]
+                    );
+                    await this.logStatus(result.insertId, device.status, device.latency);
+                    console.log(`Added new device: ${device.ip_address} (${device.name})`);
                 }
             } catch (err) {
                 console.error(`Error syncing ${device.ip_address}:`, err.message);
             }
         }
 
-        // 3. Mark Offline Devices
+        // 3. Mark Offline Devices (devices not in current scan)
         for (const dbDev of dbDevices) {
-            if (!onlineMacs.has(dbDev.mac_address)) {
+            const isOffline = !onlineIPs.has(dbDev.ip_address) &&
+                (dbDev.mac_address === 'Unknown' || !onlineMacs.has(dbDev.mac_address));
+            if (isOffline) {
                 await db.query('UPDATE devices SET status = ? WHERE id = ?', ['offline', dbDev.id]);
+                console.log(`Marked offline: ${dbDev.ip_address}`);
             }
         }
+
+        console.log(`Sync complete: ${activeDevices.length} devices processed`);
     }
 
     async logStatus(deviceId, status, latency) {

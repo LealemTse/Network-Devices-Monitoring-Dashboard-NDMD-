@@ -6,6 +6,7 @@ const authRoutes = require('./routes/authRoutes.js')
 const deviceRoutes = require('./routes/deviceRoutes.js')
 const monitoringRoutes = require('./routes/monitoringRoutes.js')
 const dashboardRoutes = require('./routes/dashboardRoutes.js')
+const configRoutes = require('./routes/configRoutes.js')
 
 const db = require('./config/db.js');
 
@@ -18,12 +19,13 @@ app.use(cookieParser());
 
 // Serve Static Files (Vanilla Frontend)
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/devices", deviceRoutes);
 app.use("/api/monitoring", monitoringRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/configs", configRoutes);
 
 const networkScanner = require('./services/networkScanner');
 

@@ -50,8 +50,11 @@ CREATE TABLE refresh_tokens (
 
 CREATE TABLE configuration_settings (
                                         id INT AUTO_INCREMENT PRIMARY KEY,
-                                        refresh_interval INT DEFAULT 60000
+                                        refresh_interval INT DEFAULT 60000,
+                                        ping_interval INT DEFAULT 3000,
+                                        ping_timeout INT DEFAULT 5,
+                                        retry_count INT DEFAULT 3
 );
 
-INSERT INTO configuration_settings (refresh_interval) VALUES (60000);
+INSERT INTO configuration_settings (refresh_interval, ping_interval, ping_timeout, retry_count) VALUES (60000, 3000, 5, 3);
 
