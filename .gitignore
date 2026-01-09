@@ -1,2 +1,8 @@
 # .gitignore - Files to exclude from Git
 
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
