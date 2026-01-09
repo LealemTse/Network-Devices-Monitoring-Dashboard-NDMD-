@@ -31,36 +31,42 @@ Ensure you have the following installed on your system:
 -   **MySQL Server**
 -   **Redis Server**
 
-## 🛠️ Installation
+# Deployment Guide
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/LealemTse/Network-Devices-Monitoring-Dashboard-NDMD-.git
-    cd Network-Devices-Monitoring-Dashboard-NDMD-
-    ```
+## Prerequisites
 
-2.  **Backend Setup**
-    Navigate to the backend directory and install dependencies:
-    ```bash
-    cd backend
-    npm install
-    ```
-    Create a `.env` file in the `backend` directory based on the example (or update the existing one) with your database credentials and JWT secret.
+-   Ensure ports **3000** (Frontend) and **5000** (Backend) are open on your firewall.
+    -   Example for `ufw`:
+        ```bash
+        sudo ufw allow 3000/tcp
+        sudo ufw allow 5000/tcp
+        ```
+-   Ensure you have internet access to install dependencies.
 
-3.  **Database Setup**
-    Ensure MySQL is running and create the necessary database. You may need to run the `seed.js` script to initialize the database with default users:
-    ```bash
-    cd backend
-    node seed.js
-    ```
+## Installation
 
-4.  **Monitoring Service Setup**
-    Install the Python dependencies (it is recommended to use a virtual environment):
+1.  Clone the repository.
+2.  Run the deployment script:
     ```bash
-    # From the root directory
-    pip install -r requirements.txt
+    ./deployment/deploy.sh
     ```
-    *Note: The system looks for a virtual environment in `monitoring-service/venv` by default in the start script.*
+    This will:
+    -   Install Node.js, MySQL, Redis, Python3.
+    -   Set up the Database and Admin User.
+    -   Set up the Python Monitoring Service (venv & dependencies).
+
+## Starting the System
+
+Run the start script from the root directory:
+
+```bash
+./start.sh
+```
+
+## Troubleshooting
+
+-   **Site Unreachable?** Check if your firewall is blocking port 3000.
+-   **Monitoring Service not starting?** Check `monitoring.log`. Ensure `deploy.sh` completed successfully to install Python dependencies.
 
 ## 🚀 Usage
 
