@@ -35,7 +35,7 @@ Ensure you have the following installed on your system:
 
 1.  **Clone the Repository**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/LealemTse/Network-Devices-Monitoring-Dashboard-NDMD-.git
     cd Network-Devices-Monitoring-Dashboard-NDMD-
     ```
 
