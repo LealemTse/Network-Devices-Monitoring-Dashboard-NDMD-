@@ -109,29 +109,67 @@ class NetworkScanner {
     }
 
     async readArpTable() {
+        let entries = {};
+
+        // Method 1: /proc/net/arp
         try {
-            // Read ARP table to get MACs
             const content = await readFile(this.arpFile, 'utf8');
             const lines = content.trim().split('\n');
-            const entries = {}; // Map IP -> MAC
-
             for (let i = 1; i < lines.length; i++) {
                 const line = lines[i].replace(/\s+/g, ' ').trim();
                 const parts = line.split(' ');
                 if (parts.length >= 4) {
                     const ip = parts[0];
                     const mac = parts[3];
-                    // On some systems, incomplete entries show 00:00...
-                    if (mac !== '00:00:00:00:00:00') {
-                        entries[ip] = mac;
+                    if (mac !== '00:00:00:00:00:00') entries[ip] = mac;
+                }
+            }
+        } catch (err) {
+            console.log("Could not read /proc/net/arp. Trying command...");
+        }
+
+        // Method 2: arp -n Command (Fallback)
+        if (Object.keys(entries).length === 0) {
+            try {
+                const { stdout } = await execPromise('arp -n');
+                const lines = stdout.split('\n');
+                lines.forEach(line => {
+                    const match = line.match(/(\d+\.\d+\.\d+\.\d+)\s+.*\s+([0-9a-fA-F:]{17})/);
+                    if (match) {
+                        entries[match[1]] = match[2];
+                    }
+                });
+            } catch (e) { console.log("arp -n command failed."); }
+        }
+
+        // Method 3: DHCP Leases (If on router/server)
+        try {
+            // Common lease file locations
+            const leaseFiles = ['/var/lib/dhcp/dhcpd.leases', '/var/lib/misc/dnsmasq.leases', '/var/db/dhcpd.leases'];
+            for (const file of leaseFiles) {
+                if (fs.existsSync(file)) {
+                    const content = await readFile(file, 'utf8');
+                    // Simple parsing (IP and MAC)
+                    // dhcpd format: lease 192.168.1.10 { hardware ethernet 00:00...; }
+                    const leaseMatches = content.matchAll(/lease\s+(\d+\.\d+\.\d+\.\d+)\s+\{[\s\S]*?hardware ethernet\s+([0-9a-fA-F:]{17});/g);
+                    for (const match of leaseMatches) {
+                        entries[match[1]] = match[2];
+                    }
+                    // dnsmasq format: timestamp mac ip ...
+                    const dnsmasqLines = content.split('\n');
+                    for (const line of dnsmasqLines) {
+                        const parts = line.split(' ');
+                        if (parts.length >= 3 && parts[1].includes(':') && parts[2].includes('.')) {
+                            entries[parts[2]] = parts[1];
+                        }
                     }
                 }
             }
-            return entries;
-        } catch (err) {
-            console.error("Error reading ARP table:", err);
-            return {};
+        } catch (e) {
+            console.log("Error reading DHCP leases (expected if not DHCP server): " + e.message);
         }
+
+        return entries;
     }
 
     mergeDeviceData(activeHosts, arpEntries) {
@@ -146,7 +184,7 @@ class NetworkScanner {
                     mac_address: mac,
                     name: host.hostname,
                     latency: host.latency,
-                    status: 'online'
+                    status: host.latency > 200 ? 'unstable' : 'online'
                 });
             }
         }
@@ -168,10 +206,10 @@ class NetworkScanner {
                     // Update existing
                     await db.query(
                         'UPDATE devices SET ip_address = ?, status = ?, last_seen = NOW() WHERE id = ?',
-                        [device.ip_address, 'online', existing[0].id]
+                        [device.ip_address, device.status, existing[0].id]
                     );
                     // Log Latency
-                    await this.logStatus(existing[0].id, 'online', device.latency);
+                    await this.logStatus(existing[0].id, device.status, device.latency);
                 } else {
                     // Check if IP matches another device (Conflict)
                     const [conflict] = await db.query('SELECT id FROM devices WHERE ip_address = ?', [device.ip_address]);

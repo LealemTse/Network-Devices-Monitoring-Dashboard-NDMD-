@@ -28,7 +28,7 @@ Thumbs.db
 logs/
 
 # Project-specific folders to ignore
-deployment/
+
 
 # Temporary files
 *.tmp

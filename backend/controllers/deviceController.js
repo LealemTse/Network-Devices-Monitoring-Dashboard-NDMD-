@@ -28,18 +28,22 @@ const getDeviceById = async (req, res) => {
 
 
 
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 const addDevice = async (req, res) => {
     try {
-        const { name, ip_address, mac_address } = req.body
+        let { name, ip_address, mac_address } = req.body
 
-        if (!name || !ip_address || !mac_address) {
-            return res.status(400).json({ message: "Name, IP address, and MAC address are required" })
+        if (!name || !ip_address) {
+            return res.status(400).json({ message: "Name and IP address are required" })
         }
 
         if (!net.isIPv4(ip_address) && !net.isIPv6(ip_address)) {
             return res.status(400).json({ message: "Invalid IP address format" })
         }
 
+        // Check conflicts
         const [existing] = await db.query(
             "SELECT id FROM devices WHERE ip_address = ?",
             [ip_address]
@@ -48,6 +52,24 @@ const addDevice = async (req, res) => {
             return res.status(409).json({ message: "Device with this IP address already exists" })
         }
 
+        // If MAC not provided, try to resolve it (Simple ARP lookup)
+        if (!mac_address) {
+            try {
+                // Ping first to ensure ARP entry exists
+                await exec(`ping -c 1 -W 1 ${ip_address}`).catch(() => { });
+                const { stdout } = await exec(`arp -n ${ip_address}`);
+                // Output format: Address HWtype HWaddress ...
+                // 192.168.1.1 ether 00:00...
+                const match = stdout.match(/([0-9a-fA-F]{2}[:-]){5}([0-9a-fA-F]{2})/);
+                if (match) {
+                    mac_address = match[0];
+                } else {
+                    mac_address = "00:00:00:00:00:00"; // Placeholder
+                }
+            } catch (err) {
+                mac_address = "00:00:00:00:00:00";
+            }
+        }
 
         const [result] = await db.query(
             "INSERT INTO devices (name, ip_address, mac_address, status) VALUES (?, ?, ?, ?)",
@@ -77,8 +99,8 @@ const editDevice = async (req, res) => {
         const { id } = req.params
         const { name, ip_address, mac_address } = req.body
 
-        if (!name || !ip_address || !mac_address) {
-            return res.status(400).json({ message: "Name, IP address, and MAC address are required" })
+        if (!name || !ip_address) {
+            return res.status(400).json({ message: "Name and IP address are required" })
         }
 
         if (!net.isIPv4(ip_address) && !net.isIPv6(ip_address)) {
@@ -93,9 +115,21 @@ const editDevice = async (req, res) => {
             return res.status(409).json({ message: "Another device already uses this IP address" })
         }
 
+        // Keep existing MAC if not provided, or update
+        // We need to fetch current if mac_address is undefined? 
+        // Or if user sends empty string, we set to "00:00..." or keep old?
+        // Let's assume user wants to keep old if not editing.
+        // But the form sends current value. If user clears it, it sends "".
+
+        let finalMac = mac_address;
+        if (!finalMac) {
+            const [current] = await db.query("SELECT mac_address FROM devices WHERE id = ?", [id]);
+            finalMac = current[0] ? current[0].mac_address : "00:00:00:00:00:00";
+        }
+
         const [result] = await db.query(
             "UPDATE devices SET name = ?, ip_address = ?, mac_address = ? WHERE id = ?",
-            [name, ip_address, mac_address, id]
+            [name, ip_address, finalMac, id]
         )
 
         if (!result.affectedRows) {

@@ -86,40 +86,65 @@ const refreshToken = async (req, res) => {
 
 
 
-// FORGOT PASSWORD (VERIFICATION STEP)
-// Frontend sends username and security answers
-//
-
-const forgotPassword = async (req, res) => {
+// GET SECURITY QUESTIONS
+// Frontend sends username
+// Backend returns the 2 question strings (no sensitive data)
+const getSecurityQuestions = async (req, res) => {
     try {
-        const { username, securityAnswer1, securityAnswer2 } = req.body
-        if (!username || !securityAnswer1 || !securityAnswer2) {
-            return res.status(400).json({ message: "Incomplete fields" })
-        }
-        const [users] = await db.query("SELECT security_answer_1_hash, security_answer_2_hash FROM users WHERE username = ?", [username])
-        const user = users[0]
-        if (!user) return res.status(404).json({ message: "User not found" })
-        const isAnswer1Correct = await bcrypt.compare(
-            securityAnswer1,
-            user.security_answer_1_hash
-        );
+        const { username } = req.body;
+        if (!username) return res.status(400).json({ message: "Username required" });
 
-        const isAnswer2Correct = await bcrypt.compare(
-            securityAnswer2,
-            user.security_answer_2_hash
-        );
-        if (!isAnswer1Correct || !isAnswer2Correct) {
-            return res.status(401).json({ message: "Invalid security answers" })
-        }
+        const [users] = await db.query("SELECT security_question_1, security_question_2 FROM users WHERE username = ?", [username]);
+        const user = users[0];
 
-        res.status(200).json({ message: "Security answers verified" })
-    }
+        if (!user) return res.status(404).json({ message: "User not found" });
 
-    catch (err) {
-        console.error("Forgot password error:", err)
-        res.status(500).json({ message: "Internal Server Error" })
+        res.json({
+            question1: user.security_question_1,
+            question2: user.security_question_2
+        });
+    } catch (err) {
+        console.error("Error fetching questions:", err);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 }
 
+// RESET PASSWORD
+// Frontend sends: username, securityAnswer1, securityAnswer2, newPassword
+const resetPassword = async (req, res) => {
+    try {
+        const { username, securityAnswer1, securityAnswer2, newPassword } = req.body;
+        if (!username || !securityAnswer1 || !securityAnswer2 || !newPassword) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
 
-module.exports = { login, forgotPassword, refreshToken }
+        const [users] = await db.query(
+            "SELECT id, security_answer_1_hash, security_answer_2_hash FROM users WHERE username = ?",
+            [username]
+        );
+        const user = users[0];
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        // Verify Answers
+        const match1 = await bcrypt.compare(securityAnswer1, user.security_answer_1_hash);
+        const match2 = await bcrypt.compare(securityAnswer2, user.security_answer_2_hash);
+
+        if (!match1 || !match2) {
+            return res.status(401).json({ message: "Incorrect security answers" });
+        }
+
+        // Hash New Password
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(newPassword, salt);
+
+        // Update Password
+        await db.query("UPDATE users SET password = ? WHERE id = ?", [passwordHash, user.id]);
+
+        res.status(200).json({ message: "Password reset successfully. You can now login." });
+    } catch (err) {
+        console.error("Reset password error:", err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+module.exports = { login, getSecurityQuestions, resetPassword, refreshToken }

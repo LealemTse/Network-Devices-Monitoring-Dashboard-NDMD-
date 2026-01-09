@@ -16,6 +16,10 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+// Serve Static Files (Vanilla Frontend)
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/devices", deviceRoutes);
 app.use("/api/monitoring", monitoringRoutes);

@@ -75,19 +75,48 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
+/* Base Variables (Light Mode Default) */
 :root {
-  /* --body-background-color: oklch(18.941% 0.08092 267.169); */
-  /* --body-background-color: oklch(76.735% 0.0029 285.887); */
-  /* --submit-btn: oklch(75.961% 0.17103 160.315); */
-  --font-color: rgb(18, 18, 18);
-  --nav-font-color: oklch(58.664% 0.00157 285.72);
-  --card-bg-color: oklch(44.321% 0.06215 273.16 / 0.244);
-  --btn-bg-color: rgb(60, 0, 128);
+  --bg-primary: #f4f7fe;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #333333;
+  --text-muted: #666666;
+  --accent-color: #3c0080;
+  --accent-hover: #4e12c0;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --success: #22c55e;
+  --warning: #facc15;
+  --error: #ef4444;
+
+  /* Legacy overrides/mappings */
+  --font-color: var(--text-primary);
+  --btn-bg-color: var(--accent-color);
+}
+
+/* Dark Mode Overrides */
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #cccccc;
+  --text-muted: #a0a0a0;
+  --accent-color: #6d28d9;
+  /* Lighter purple for dark mode */
+  --accent-hover: #7c3aed;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  /* Colors usually stay same but can tweak if needed */
 }
 
 body {
-  background-color: var(--body-background-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* ... Existing utilities ... */
 
 .hidden {
   display: none;
@@ -95,26 +124,15 @@ body {
 
 .auth-btn {
   padding: 16px;
-  background-color: white;
-  color: black;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   border: 2px solid aqua;
 }
 
-.main {
-  z-index: 1;
-  display: grid;
-  /* position: fixed; */
-  /* justify-content: center; */
-  width: 100%;
-  align-items: center;
-  /* height: 99vh; */
-  /* background-color: aquamarine; */
-}
-
-/* sign up css */
+/* ... Login/Auth ... */
 .login-title,
 .recovery-title {
-  color: var(--font-color);
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 20px;
   width: fit-content;
@@ -122,110 +140,33 @@ body {
   text-align: center;
 }
 
-.login-container,
-.recovery-container {
-  z-index: 2;
-  /* border: 2px solid; */
-  display: flex;
-  margin-top: 50px;
-  align-self: start;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  /* width: fit-content; */
-  min-height: 400px;
-  /* height: 65vh; */
+.login-container {
+  background-color: var(--bg-primary);
+  /* Updated */
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  justify-items: center;
-  align-items: center;
-  width: 350px;
-  height: 100%;
-  padding: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-.login-form label {
-  font-size: 1.3rem;
-  margin-left: 0px !important;
-}
-
+.login-form,
 .recovery-form {
-  background: white;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  justify-items: center;
-  align-items: center;
-  width: 350px;
-  height: 500px;
-  padding: 20px;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
-}
-
-/* .input {
-  color: var(--font-color);
-  margin: 10px;
-  width: 80%;
-  height: 20px;
-  padding: 5px 10px;
-  align-items: center;
-  font-size: 18px;
-  border-radius: 8px;
-  border: 1px solid rgba(29, 29, 29, 0.797);
-  
-} */ /* background-color: rgba(128, 128, 128, 0.333); */
-/* backdrop-filter: blur(5px); */
-
-.confirm-reminder,
-.description {
-  margin: 0;
-  margin-top: 20px;
-  /* border: 2px solid; */
-  font-size: 14px;
-  width: 86%;
-
-  color: rgba(19, 18, 18, 0.618);
-  padding: 0;
-}
-
-.description {
-  font-size: 16px;
-  margin: 0 0 40px;
+  background: var(--bg-secondary);
+  /* Updated */
+  color: var(--text-primary);
 }
 
 .login-label,
 .label {
-  padding-left: 10px;
-  color: var(--font-color);
-  width: 89%;
+  color: var(--text-secondary);
 }
 
-.login-submit,
-.forgot-submit {
-  width: 88%;
-  height: 30px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: none;
-  transition: 0.3s;
-  background-color: #3c0080; /* Match your logout button */
-  color: white;
-  font-size: 1.2rem;
+.input {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
 .forgot-password {
-  /* border: 2px solid; */
-  align-self: flex-end;
-  margin: 15px 20px 0 0;
-  padding: 4px;
-  text-decoration: none;
-  color: var(--btn-bg-color);
+  color: var(--accent-color);
 }
+
 
 /* Center the login box on the screen */
 .login-container {
@@ -233,7 +174,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f7fe; /* Light background to make the white form pop */
+  background-color: #f4f7fe;
+  /* Light background to make the white form pop */
 }
 
 .login-form {
@@ -271,7 +213,8 @@ body {
   margin-bottom: 15px;
   margin-top: 5px;
   border: 1.5px solid #e2e8f0;
-  border-radius: 7px; /* Rounded pill shape from your image */
+  border-radius: 7px;
+  /* Rounded pill shape from your image */
   font-size: 1rem;
   background-color: #fff;
   transition: all 0.2s ease;
@@ -334,9 +277,11 @@ body {
 }
 
 .recovery-security-questions:focus {
-  border-color: #4a148c; /* Matches your brand color */
+  border-color: #4a148c;
+  /* Matches your brand color */
   box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
 }
+
 /* Styling the options inside the popup */
 .recovery-security-questions option {
   background-color: white;
@@ -361,15 +306,19 @@ body {
 /* Container for label + input pair */
 .form-group {
   display: flex;
-  flex-direction: column; /* Stacks label on top of input */
-  align-items: flex-start; /* Aligns both to the left */
-  margin-bottom: 24px; /* Space between the Answer group and the Verify button */
+  flex-direction: column;
+  /* Stacks label on top of input */
+  align-items: flex-start;
+  /* Aligns both to the left */
+  margin-bottom: 24px;
+  /* Space between the Answer group and the Verify button */
   width: 100%;
 }
 
 /* The Label text */
 .label {
-  margin-bottom: 8px; /* Specific gap between label and its input */
+  margin-bottom: 8px;
+  /* Specific gap between label and its input */
   font-weight: 600;
   font-size: 0.95rem;
   color: #1a1a1a;
@@ -383,7 +332,8 @@ body {
   border: 1.5px solid #d1d5db;
   border-radius: 10px;
   font-size: 1rem;
-  box-sizing: border-box; /* Ensures padding doesn't break width */
+  box-sizing: border-box;
+  /* Ensures padding doesn't break width */
 }
 
 /* Description text spacing */
@@ -396,22 +346,82 @@ body {
 
 /* navbar component */
 
+
 .navbar {
-  display: flex;
-  align-self: flex-start;
-  justify-self: center;
-  color: var(--font-color);
-  height: 10vh;
-  width: 100%;
-  padding: 10px 20px;
-  margin-top: 20px;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 2rem;
-  background-color: #ffffff;
+  /* ... existing layout ... */
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
 }
+
+.device-stat {
+  /* ... */
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary);
+}
+
+.device-stat header h2 {
+  color: var(--text-primary);
+}
+
+.status-card {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.status-label {
+  color: var(--text-primary);
+}
+
+.device-pannel {
+  color: var(--text-primary);
+}
+
+.device-pannel thead th {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+.device-pannel tr {
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.dropdown-menu {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.dropdown-menu button {
+  color: var(--text-primary);
+}
+
+.dropdown-menu button:hover {
+  background-color: var(--bg-primary);
+}
+
+.modal-content {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.nav-links {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Fix mobile menu text colors */
+.nav-links a {
+  color: var(--text-secondary);
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
 .menu-toggle {
-  display: none; /* Hidden on desktop */
+  display: none;
+  /* Hidden on desktop */
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -425,12 +435,14 @@ body {
 
 @media (max-width: 850px) {
   .menu-toggle {
-    display: block; /* Show hamburger on mobile */
+    display: block;
+    /* Show hamburger on mobile */
     z-index: 1001;
   }
 
   .desktop-only {
-    display: none; /* Hide standard logout button */
+    display: none;
+    /* Hide standard logout button */
   }
 
   .mobile-only {
@@ -441,7 +453,8 @@ body {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%; /* Hidden off-screen by default */
+    right: -100%;
+    /* Hidden off-screen by default */
     width: 70%;
     height: 100vh;
     background: white;
@@ -454,11 +467,13 @@ body {
   }
 
   .nav-links.open {
-    right: 0; /* Slide in menu */
+    right: 0;
+    /* Slide in menu */
   }
 
   .nav-links {
-    width: 70%; /* Takes up most of the screen on mobile */
+    width: 70%;
+    /* Takes up most of the screen on mobile */
   }
 }
 
@@ -470,12 +485,15 @@ body {
 }
 
 .nav-links a:hover {
-  color: #391286; /* hover */
+  color: #391286;
+  /* hover */
 }
 
 .nav-links a.active {
-  color: #4e12c0; /* active */
+  color: #4e12c0;
+  /* active */
 }
+
 .nav-links {
   display: flex;
   list-style-type: none;
@@ -521,6 +539,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .device-stat header {
   justify-content: space-between !important;
 }
@@ -548,6 +567,7 @@ body {
   font-weight: bold;
   color: #1a1d23;
 }
+
 .add-btn {
   padding: 15px 25px;
   background-color: var(--btn-bg-color);
@@ -573,6 +593,7 @@ body {
   max-width: 1200px;
   margin: 20px auto;
 }
+
 .status-card {
   background: #ffffff;
   border-radius: 12px;
@@ -583,6 +604,7 @@ body {
   text-align: center;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
+
 .status-value {
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 800;
@@ -617,15 +639,18 @@ body {
   margin-left: 60px;
   margin-right: 60px;
 }
+
 @media (max-width: 600px) {
   .table-header-actions {
     margin-left: 0;
     margin-right: 0;
   }
+
   .device-pannel {
     width: 100%;
   }
 }
+
 button:hover {
   transform: scale(1.1);
 }
@@ -639,15 +664,18 @@ button:hover {
   text-align: left;
   padding: 12px 15px;
 }
+
 .device-pannel thead th {
   text-align: left;
   padding: 12px 15px;
   border-bottom: 1px solid #eceeef;
   color: #6c757d;
 }
+
 .device-pannel tr {
   border: 1px solid #ccc;
 }
+
 .device-pannel td {
   padding-left: 7px;
   padding-right: 7px;
@@ -656,7 +684,9 @@ button:hover {
 @media (max-width: 720px) {
   .device-pannel thead {
     display: none;
-  } /* Hide headers */
+  }
+
+  /* Hide headers */
 
   .device-pannel tr {
     display: block;
@@ -674,6 +704,7 @@ button:hover {
     border-bottom: 1px solid #f1f1f1;
     text-align: right;
   }
+
   .device-pannel td:last-child {
     border-bottom: none;
   }
@@ -688,14 +719,19 @@ button:hover {
 
 @media (max-width: 600px) {
   .device-stat header {
-    flex-direction: column; /* Stack Title and Button vertically */
-    align-items: flex-start; /* Align them to the left */
-    gap: 15px; /* Create clear space between the Title and Button */
-    width: 100%; /* Ensure it uses full width of the container */
+    flex-direction: column;
+    /* Stack Title and Button vertically */
+    align-items: flex-start;
+    /* Align them to the left */
+    gap: 15px;
+    /* Create clear space between the Title and Button */
+    width: 100%;
+    /* Ensure it uses full width of the container */
   }
 
   .add-btn {
-    width: 100%; /* Make button full-width on mobile for easier tapping */
+    width: 100%;
+    /* Make button full-width on mobile for easier tapping */
     text-align: center;
   }
 }
@@ -705,16 +741,19 @@ button:hover {
   text-align: center;
   padding: 5px;
 }
+
 .device-pannel td {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .deviceTable-h2 {
   font-size: 1.5rem;
 }
 
 .dropdown-container {
-  position: relative; /* Essential for the menu to position itself correctly */
+  position: relative;
+  /* Essential for the menu to position itself correctly */
   display: inline-block;
 }
 
@@ -756,16 +795,19 @@ button:hover {
 }
 
 .modal-overlay {
-  position: fixed; /* Stays in place even if you scroll */
+  position: fixed;
+  /* Stays in place even if you scroll */
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dim background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999; /* Higher than the table */
+  z-index: 999;
+  /* Higher than the table */
 }
 
 .modal-content {
@@ -775,17 +817,22 @@ button:hover {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
 .modal-actions {
   display: flex;
-  justify-content: center; /* Keeps the group in the middle */
-  gap: 30px; /* Precise spacing between the buttons */
-  margin-top: 25px; /* Space between the last input and buttons */
+  justify-content: center;
+  /* Keeps the group in the middle */
+  gap: 30px;
+  /* Precise spacing between the buttons */
+  margin-top: 25px;
+  /* Space between the last input and buttons */
   width: 100%;
 }
 
 .modal-content button {
   border-radius: 10px;
 }
+
 .confirm-btn {
   background-color: green;
   color: #ffff !important;
@@ -794,6 +841,7 @@ button:hover {
   padding: 4px 10px !important;
   min-width: 120px;
 }
+
 .cancel-btn {
   background-color: #ef4444;
   color: #ffff !important;
@@ -808,24 +856,30 @@ button:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
+
 .input-field {
   max-width: 350px;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 5px 0px;
-  padding: 8px 12px; /* Equal vertical/horizontal breathing room */
+  padding: 8px 12px;
+  /* Equal vertical/horizontal breathing room */
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 12px;
 }
+
 .input-field:focus {
-  border-color: #4a148c; /* Matches your meatball menu color */
+  border-color: #4a148c;
+  /* Matches your meatball menu color */
   box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
 }
+
 .add-form {
   width: 400px;
 }
+
 .labels {
   display: flex;
   text-align: left;
@@ -834,6 +888,7 @@ button:hover {
 .settings-config {
   margin-left: 30px;
 }
+
 .toast-notification {
   position: fixed;
   bottom: 20px;
@@ -855,6 +910,7 @@ button:hover {
     bottom: -50px;
     opacity: 0;
   }
+
   to {
     bottom: 20px;
     opacity: 1;
@@ -866,25 +922,29 @@ button:hover {
   margin-top: 20px;
   margin-bottom: 0;
 }
+
 .log-stat-select {
   align-items: center;
   margin-left: 50px;
   width: 140px;
   text-align: center;
 }
+
 /* Settings */
 .settings-config {
   background: #ffffff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Matching your dashboard style */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Matching your dashboard style */
   max-width: 500px;
 }
 
 .settings-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* This creates uniform margin between each form group */
+  gap: 15px;
+  /* This creates uniform margin between each form group */
   margin-top: 20px;
 }
 
@@ -909,7 +969,8 @@ button:hover {
 }
 
 .save-settings-btn {
-  background-color: #3c0080; /* Match your logout button */
+  background-color: #3c0080;
+  /* Match your logout button */
   color: white;
   padding: 12px;
   border: none;
@@ -926,8 +987,10 @@ button:hover {
   gap: 15px;
   margin-bottom: 20px;
 }
+
 .controls {
-  margin: 20px 0; /* Creates space between the heading and the dropdown */
+  margin: 20px 0;
+  /* Creates space between the heading and the dropdown */
   display: flex;
   justify-content: flex-start;
 }
@@ -957,9 +1020,11 @@ button:hover {
 }
 
 .log-stat-select:focus {
-  border-color: #4a148c; /* Matches your brand color */
+  border-color: #4a148c;
+  /* Matches your brand color */
   box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
 }
+
 /* Styling the options inside the popup */
 .log-stat-select option {
   background-color: white;
@@ -979,4 +1044,277 @@ button:hover {
 .log-stat-select option {
   padding: 10px;
   background-color: white;
+}
+
+/* --- FUTURISTIC THEME ADDITIONS --- */
+
+/* Wrapper */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
+  overflow: hidden;
+}
+
+/* Background Animation */
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(58, 28, 113, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 28, 113, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 1;
+}
+
+/* Glassmorphism Container */
+.login-container.glass-effect {
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  /* Very transparent */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(138, 43, 226, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.login-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.5);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+.login-title {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  color: #a0a0ff;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.login-form-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-label {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.futuristic-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.futuristic-input:focus {
+  outline: none;
+  border-color: #8a2be2;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.futuristic-btn {
+  background: linear-gradient(135deg, #6d28d9 0%, #3a1c71 100%);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
+  margin-top: 10px;
+}
+
+.futuristic-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(109, 40, 217, 0.6);
+  filter: brightness(1.2);
+}
+
+.futuristic-link {
+  color: #a0a0ff;
+  text-align: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.futuristic-link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #a0a0ff;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+/* Futuristic Table and Logs Styles */
+.futuristic-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* Spacing between rows */
+  margin-top: 10px;
+}
+
+.futuristic-table thead th {
+  background: rgba(255, 255, 255, 0.05);
+  color: #a78bfa; /* Light purple */
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.futuristic-table tbody tr {
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.futuristic-table tbody tr:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: scale(1.005);
+}
+
+.futuristic-table td {
+  padding: 15px;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.online {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+
+.status-badge.offline {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.status-badge.unstable {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+/* Main Hub Styles */
+.hub-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hub-header {
+  margin-bottom: 50px;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, background 0.3s ease;
+  min-height: 250px;
+}
+
+.hub-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #a78bfa;
+}
+
+.hub-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hub-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  text-align: center;
 }

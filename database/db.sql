@@ -7,8 +7,10 @@ create table users(
                       username VARCHAR(255) NOT NULL UNIQUE,
                       password VARCHAR(255) NOT NULL,
                       role VARCHAR(50) DEFAULT 'admin',
-                      security_answer_1_hash VARCHAR(255),
-                      security_answer_2_hash VARCHAR(255),
+                      security_question_1 VARCHAR(255) NOT NULL,
+                      security_answer_1_hash VARCHAR(255) NOT NULL,
+                      security_question_2 VARCHAR(255) NOT NULL,
+                      security_answer_2_hash VARCHAR(255) NOT NULL,
                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -1,4 +1,5 @@
 const db = require('../config/db')
+const redisClient = require('../config/redisClient');
 
 //send device id,name,ip address to monitoring srvice
 
@@ -100,12 +101,23 @@ const triggerScan = async (req, res) => {
 
 const getStatusLogs = async (req, res) => {
     try {
+        // Try Cache First
+        const cachedLogs = await redisClient.get('monitoring:logs');
+        if (cachedLogs) {
+            return res.status(200).json({ logs: JSON.parse(cachedLogs) });
+        }
+
+        // Fetch from DB if miss (Include IP Address)
         const [logs] = await db.query(
-            `SELECT sl.id, sl.device_id, d.name as device_name, sl.status, sl.latency, sl.created_at as time
+            `SELECT sl.id, sl.device_id, d.name as device_name, d.ip_address, sl.status, sl.latency, sl.created_at as time
              FROM status_logs sl
              JOIN devices d ON sl.device_id = d.id
              ORDER BY sl.created_at DESC LIMIT 100`
         );
+
+        // Cache for 10 seconds (logs update frequently during scans)
+        await redisClient.setEx('monitoring:logs', 10, JSON.stringify(logs));
+
         res.status(200).json({ logs: logs });
     } catch (err) {
         console.error("Error fetching status logs:", err);

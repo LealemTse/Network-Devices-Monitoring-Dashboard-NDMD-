@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDMD Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <div class="login-background"></div>
+        <div class="login-container glass-effect">
+            <div class="login-header">
+                <!-- Ensure you copy the image or use text fallback -->
+                <h1 class="login-title">NDMD Access Portal</h1>
+                <p class="login-subtitle">Secure Network Monitoring</p>
+            </div>
+
+            <form class="login-form-content" onsubmit="handleLogin(event)">
+                <div id="error-msg" class="error-message" style="display: none;"></div>
+
+                <div class="input-group">
+                    <label class="login-label">Admin ID</label>
+                    <input type="text" id="username" class="input futuristic-input" placeholder="Enter Username"
+                        value="admin" required>
+                </div>
+
+                <div class="input-group">
+                    <label class="login-label">Secure Key</label>
+                    <input type="password" id="password" class="input futuristic-input" placeholder="Enter Password"
+                        required>
+                </div>
+
+                <button class="login-submit futuristic-btn" type="submit">Initialize Session</button>
+
+                <a href="/forgot-password.html" class="forgot-password futuristic-link">Lost Credentials?</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        async function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const errDiv = document.getElementById('error-msg');
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: u, password: p })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem('token', data.accessToken);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = '/index.html'; // Redirect to Main Hub
+                } else {
+                    errDiv.innerText = data.message || "Login failed";
+                    errDiv.style.display = 'block';
+                }
+            } catch (err) {
+                errDiv.innerText = "Network Error";
+                errDiv.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
