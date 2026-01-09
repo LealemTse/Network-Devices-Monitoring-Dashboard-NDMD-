@@ -110,6 +110,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             fetchStats();
             fetchDevices();
+
+            // Auto-refresh every 5 seconds for real-time updates
+            setInterval(() => {
+                fetchStats();
+                fetchDevices();
+            }, 5000);
         });
 
         async function fetchStats() {

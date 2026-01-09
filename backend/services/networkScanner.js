@@ -1,0 +1,268 @@
+const fs = require('fs');
+const util = require('util');
+const os = require('os');
+const { exec } = require('child_process');
+const readFile = util.promisify(fs.readFile);
+const execPromise = util.promisify(exec);
+const db = require('../config/db');
+const redisClient = require('../config/redisClient');
+
+class NetworkScanner {
+    constructor() {
+        this.arpFile = '/proc/net/arp';
+    }
+
+    async scan() {
+        try {
+            console.log('Starting high-accuracy network scan (Ping Sweep)...');
+
+            // 1. Detect Local Subnet
+            const { subnet, localIP } = this.getLocalNetworkInfo();
+            if (!subnet) {
+                console.error("Could not detect local subnet. Scanning DB devices only.");
+                return [];
+            }
+            console.log(`Scanning subnet: ${subnet} (Local IP: ${localIP})`);
+
+            // 2. Perform Ping Sweep (Active Discovery)
+            // Scans all IPs in the subnet to find active hosts
+            const activeHosts = await this.pingSweep(subnet);
+            console.log(`Ping Sweep found ${activeHosts.length} active hosts.`);
+
+            // 3. Get MAC Addresses from ARP Table
+            // (Ping populates ARP table for local LAN)
+            const arpEntries = await this.readArpTable();
+
+            // 4. Merge Data
+            const devices = this.mergeDeviceData(activeHosts, arpEntries);
+
+            // 5. Update Database (Sync)
+            await this.syncDatabase(devices);
+
+            // 6. Invalidate Redis Cache to refresh Dashboard
+            try {
+                await redisClient.del('dashboard:overview');
+                console.log("Redis cache invalidated (dashboard:overview)");
+            } catch (err) {
+                console.error("Error invalidating redis cache:", err.message);
+            }
+
+            return devices;
+        } catch (err) {
+            console.error('Network scan failed:', err);
+            return [];
+        }
+    }
+
+    getLocalNetworkInfo() {
+        const interfaces = os.networkInterfaces();
+        for (const name of Object.keys(interfaces)) {
+            for (const iface of interfaces[name]) {
+                if (iface.family === 'IPv4' && !iface.internal) {
+                    const ip = iface.address;
+                    const prefix = ip.substring(0, ip.lastIndexOf('.'));
+                    return { subnet: `${prefix}.0/24`, localIP: ip, prefix };
+                }
+            }
+        }
+        return { subnet: null, localIP: null };
+    }
+
+    async pingSweep(subnet) {
+        // Generate all IPs in /24 subnet (1..254)
+        const prefix = subnet.split('.')[0] + '.' + subnet.split('.')[1] + '.' + subnet.split('.')[2];
+        const ips = [];
+        for (let i = 1; i < 255; i++) {
+            ips.push(`${prefix}.${i}`);
+        }
+
+        // Ping in batches to avoid OS limit/overhead
+        const batchSize = 50;
+        const activeHosts = [];
+
+        for (let i = 0; i < ips.length; i += batchSize) {
+            const batch = ips.slice(i, i + batchSize);
+            const promises = batch.map(ip => this.checkIP(ip));
+            const results = await Promise.all(promises);
+
+            // Filter alive hosts
+            results.forEach(res => {
+                if (res.alive) {
+                    activeHosts.push(res);
+                }
+            });
+        }
+        return activeHosts;
+    }
+
+    async checkIP(ip) {
+        try {
+            // Ping 1 packet, timeout 2s
+            const { stdout } = await execPromise(`ping -c 1 -W 2 ${ip}`);
+            // Extract latency
+            const timeMatch = stdout.match(/time=([\d.]+)/);
+            const latency = timeMatch ? parseFloat(timeMatch[1]) : 0;
+            return { ip, alive: true, latency, hostname: `Device-${ip.split('.').pop()}` };
+        } catch (err) {
+            return { ip, alive: false, latency: null };
+        }
+    }
+
+    async readArpTable() {
+        let entries = {};
+
+        // Method 1: /proc/net/arp
+        try {
+            const content = await readFile(this.arpFile, 'utf8');
+            const lines = content.trim().split('\n');
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].replace(/\s+/g, ' ').trim();
+                const parts = line.split(' ');
+                if (parts.length >= 4) {
+                    const ip = parts[0];
+                    const mac = parts[3];
+                    if (mac !== '00:00:00:00:00:00') entries[ip] = mac;
+                }
+            }
+        } catch (err) {
+            console.log("Could not read /proc/net/arp. Trying command...");
+        }
+
+        // Method 2: arp -n Command (Fallback)
+        if (Object.keys(entries).length === 0) {
+            try {
+                const { stdout } = await execPromise('arp -n');
+                const lines = stdout.split('\n');
+                lines.forEach(line => {
+                    const match = line.match(/(\d+\.\d+\.\d+\.\d+)\s+.*\s+([0-9a-fA-F:]{17})/);
+                    if (match) {
+                        entries[match[1]] = match[2];
+                    }
+                });
+            } catch (e) { console.log("arp -n command failed."); }
+        }
+
+        // Method 3: DHCP Leases (If on router/server)
+        try {
+            // Common lease file locations
+            const leaseFiles = ['/var/lib/dhcp/dhcpd.leases', '/var/lib/misc/dnsmasq.leases', '/var/db/dhcpd.leases'];
+            for (const file of leaseFiles) {
+                if (fs.existsSync(file)) {
+                    const content = await readFile(file, 'utf8');
+                    // Simple parsing (IP and MAC)
+                    // dhcpd format: lease 192.168.1.10 { hardware ethernet 00:00...; }
+                    const leaseMatches = content.matchAll(/lease\s+(\d+\.\d+\.\d+\.\d+)\s+\{[\s\S]*?hardware ethernet\s+([0-9a-fA-F:]{17});/g);
+                    for (const match of leaseMatches) {
+                        entries[match[1]] = match[2];
+                    }
+                    // dnsmasq format: timestamp mac ip ...
+                    const dnsmasqLines = content.split('\n');
+                    for (const line of dnsmasqLines) {
+                        const parts = line.split(' ');
+                        if (parts.length >= 3 && parts[1].includes(':') && parts[2].includes('.')) {
+                            entries[parts[2]] = parts[1];
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            console.log("Error reading DHCP leases (expected if not DHCP server): " + e.message);
+        }
+
+        return entries;
+    }
+
+    mergeDeviceData(activeHosts, arpEntries) {
+        const devices = [];
+        for (const host of activeHosts) {
+            // Get MAC from ARP if available, otherwise use 'Unknown'
+            const mac = arpEntries[host.ip] || 'Unknown';
+
+            // Include all active hosts, even without MAC address
+            devices.push({
+                ip_address: host.ip,
+                mac_address: mac,
+                name: host.hostname,
+                latency: host.latency,
+                status: host.latency > 200 ? 'unstable' : 'online'
+            });
+        }
+        console.log(`Merged ${devices.length} devices with ARP data`);
+        return devices;
+    }
+
+    async syncDatabase(activeDevices) {
+        // 1. Get current DB state
+        const [dbDevices] = await db.query('SELECT id, ip_address, mac_address FROM devices');
+        const onlineIPs = new Set();
+        const onlineMacs = new Set();
+
+        // 2. Sync Active Devices
+        for (const device of activeDevices) {
+            onlineIPs.add(device.ip_address);
+            if (device.mac_address !== 'Unknown') {
+                onlineMacs.add(device.mac_address);
+            }
+
+            try {
+                let existing = null;
+
+                // Try to find by MAC first (if known)
+                if (device.mac_address !== 'Unknown') {
+                    [existing] = await db.query('SELECT id FROM devices WHERE mac_address = ?', [device.mac_address]);
+                }
+
+                // If not found by MAC, try by IP
+                if (!existing || existing.length === 0) {
+                    [existing] = await db.query('SELECT id FROM devices WHERE ip_address = ?', [device.ip_address]);
+                }
+
+                if (existing && existing.length > 0) {
+                    // Update existing device
+                    const updateQuery = device.mac_address !== 'Unknown'
+                        ? 'UPDATE devices SET ip_address = ?, mac_address = ?, status = ? WHERE id = ?'
+                        : 'UPDATE devices SET ip_address = ?, status = ? WHERE id = ?';
+
+                    const updateParams = device.mac_address !== 'Unknown'
+                        ? [device.ip_address, device.mac_address, device.status, existing[0].id]
+                        : [device.ip_address, device.status, existing[0].id];
+
+                    await db.query(updateQuery, updateParams);
+                    await this.logStatus(existing[0].id, device.status, device.latency);
+                    console.log(`Updated device: ${device.ip_address} (${device.name})`);
+                } else {
+                    // New Device - Insert it
+                    const [result] = await db.query(
+                        'INSERT INTO devices (name, ip_address, mac_address, status) VALUES (?, ?, ?, ?)',
+                        [device.name, device.ip_address, device.mac_address, device.status]
+                    );
+                    await this.logStatus(result.insertId, device.status, device.latency);
+                    console.log(`Added new device: ${device.ip_address} (${device.name})`);
+                }
+            } catch (err) {
+                console.error(`Error syncing ${device.ip_address}:`, err.message);
+            }
+        }
+
+        // 3. Mark Offline Devices (devices not in current scan)
+        for (const dbDev of dbDevices) {
+            const isOffline = !onlineIPs.has(dbDev.ip_address) &&
+                (dbDev.mac_address === 'Unknown' || !onlineMacs.has(dbDev.mac_address));
+            if (isOffline) {
+                await db.query('UPDATE devices SET status = ? WHERE id = ?', ['offline', dbDev.id]);
+                console.log(`Marked offline: ${dbDev.ip_address}`);
+            }
+        }
+
+        console.log(`Sync complete: ${activeDevices.length} devices processed`);
+    }
+
+    async logStatus(deviceId, status, latency) {
+        await db.query(
+            'INSERT INTO status_logs (device_id, status, latency) VALUES (?, ?, ?)',
+            [deviceId, status, latency]
+        );
+    }
+}
+
+module.exports = new NetworkScanner();

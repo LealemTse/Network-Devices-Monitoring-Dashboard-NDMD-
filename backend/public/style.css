@@ -592,6 +592,101 @@ body {
   color: #8b5cf6;
 }
 
+/* ===== DARK MODE - PAGE CONTAINERS ===== */
+[data-theme='dark'] .dashboard,
+[data-theme='dark'] .logs,
+[data-theme='dark'] .logs-page,
+[data-theme='dark'] .settings,
+[data-theme='dark'] .help,
+[data-theme='dark'] .login-container,
+[data-theme='dark'] .recovery-container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ===== DARK MODE - GLASS EFFECT ===== */
+[data-theme='dark'] .glass-effect {
+  background: rgba(30, 30, 30, 0.9) !important;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* ===== DARK MODE - FORM INPUTS ===== */
+[data-theme='dark'] .input,
+[data-theme='dark'] .futuristic-input {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme='dark'] .input:focus,
+[data-theme='dark'] .futuristic-input:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.3);
+}
+
+/* ===== DARK MODE - TABLES ===== */
+[data-theme='dark'] .futuristic-table {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .futuristic-table thead th {
+  background-color: var(--bg-primary);
+  color: var(--text-muted);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .futuristic-table tbody tr {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .futuristic-table tbody tr:hover {
+  background-color: rgba(109, 40, 217, 0.1);
+}
+
+[data-theme='dark'] .futuristic-table td {
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* ===== DARK MODE - CARDS & COMPONENTS ===== */
+[data-theme='dark'] .status-card {
+  background: var(--bg-secondary) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .device-stat {
+  background-color: var(--bg-secondary) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== DARK MODE - LABELS & TEXT ===== */
+[data-theme='dark'] .login-title,
+[data-theme='dark'] .login-label,
+[data-theme='dark'] .label,
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme='dark'] .form-group small {
+  color: var(--text-muted) !important;
+}
+
+/* ===== DARK MODE - BUTTONS ===== */
+[data-theme='dark'] .futuristic-btn {
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+  color: white;
+}
+
+[data-theme='dark'] .table-container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
 /* ===== COMPONENT THEME STYLES ===== */
 .device-stat {
   background-color: var(--bg-secondary) !important;
