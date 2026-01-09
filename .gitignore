@@ -1,6 +1,6 @@
 # .gitignore - Files to exclude from Git
-
-
+*.log
+*.old
 # Logs
 *.log
 npm-debug.log*

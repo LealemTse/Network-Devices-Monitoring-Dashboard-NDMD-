@@ -16,7 +16,7 @@
             <div class="glass-effect" style="border-radius: 16px; padding: 20px;">
                 <header class="logs-header"
                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h1 class="login-title" style="margin: 0;">Live System Logs</h1>
+                    <h1 class="login-title" style="margin: 0;">System Logs</h1>
                     <div style="font-size: 0.9rem; color: #a78bfa;">Auto-refreshing (5s)</div>
                 </header>
 
@@ -61,7 +61,7 @@
                         <td>${log.ip_address || 'N/A'}</td>
                         <td>${log.device_name}</td>
                         <td><span class="status-badge ${log.status}">${log.status}</span></td>
-                        <td>${log.latency} ms</td>
+                        <td>${log.latency ? log.latency + ' ms' : 'N/A'}</td>
                      </tr>
                 `).join('');
             } catch (e) { console.error(e); }

@@ -74,7 +74,8 @@ class DeviceMonitor:
         print(f" {status_symbol} status: {self.status}")
         if latency:
             print(f" Latency: {result['latency_ms']} ms")
-            return result
+            
+        return result
     
     def get_summary(self):
         """Get a one-line summary of this device's status."""

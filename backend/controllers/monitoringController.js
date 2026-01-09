@@ -48,10 +48,12 @@ const getRefreshInterval = async (req, res) => {
 
 const receiveMonitoringUpdate = async (req, res) => {
     try {
-        const { device_id, status, latency } = req.body
+        const { device_id, latency_ms } = req.body
+        let { status } = req.body
         if (!device_id || !status) {
             return res.status(400).json({ message: "device_id and status are required" })
         }
+        status = status.toLowerCase();
         const [devices] = await db.query(
             "SELECT id FROM devices WHERE id = ?",
             [device_id]
@@ -64,7 +66,7 @@ const receiveMonitoringUpdate = async (req, res) => {
             return res.status(400).json({ message: "Invalid device status" })
         }
         await updateDeviceStatus(status, device_id)
-        await storeStatusLog(status, device_id, latency)
+        await storeStatusLog(status, device_id, latency_ms)
         res.status(200).json({ message: "Monitoring update processed" })
 
     } catch (err) {
