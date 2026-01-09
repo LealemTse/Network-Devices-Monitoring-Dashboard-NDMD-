@@ -260,6 +260,7 @@ echo -e "${BOLD}${GREEN}Execute ./start.sh to launch the application.${RESET}"
 
 # Create start.sh with dual-server support
 cat <<EOT > start.sh
+<<<<<<< HEAD
 #!/bin/bash
 GREEN="\033[32m"
 RED="\033[31m"
@@ -318,5 +319,8 @@ echo "Logs: backend.log, monitoring.log"
 wait
 
 EOT
+=======
+
+>>>>>>> 14781df1198935e3e5f54028b55edd64b73b2cd5
 
 chmod +x start.sh

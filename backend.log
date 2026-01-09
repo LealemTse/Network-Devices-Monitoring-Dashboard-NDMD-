@@ -232,3 +232,18 @@ Marked offline: 192.168.1.3
 Marked offline: 192.168.1.4
 Sync complete: 5 devices processed
 Redis cache invalidated (dashboard:overview)
+Auth middleware error: jwt expired
+Auth middleware error: jwt expired
+Starting high-accuracy network scan (Ping Sweep)...
+Scanning subnet: 192.168.1.0/24 (Local IP: 192.168.1.5)
+Ping Sweep found 5 active hosts.
+Merged 5 devices with ARP data
+Updated device: 192.168.1.1 (Device-1)
+Updated device: 192.168.1.5 (Device-5)
+Updated device: 192.168.1.6 (Device-6)
+Updated device: 192.168.1.7 (Device-7)
+Updated device: 192.168.1.11 (Device-11)
+Marked offline: 192.168.1.3
+Marked offline: 192.168.1.4
+Sync complete: 5 devices processed
+Redis cache invalidated (dashboard:overview)
